@@ -2,8 +2,8 @@ import type { Locale } from './types'
 
 export const zhCN: Locale = {
   common: {
-    welcome: "欢迎使用 TinyShip",
-    siteName: "TinyShip",
+    welcome: "欢迎使用 飞书 CLI",
+    siteName: "飞书 CLI",
     login: "登录",
     signup: "注册",
     logout: "退出登录",
@@ -74,19 +74,19 @@ export const zhCN: Locale = {
   },
   email: {
     verification: {
-      subject: "验证您的 TinyShip 账号",
+      subject: "验证您的 飞书 CLI 账号",
       title: "请验证您的邮箱地址",
       greeting: "您好 {{name}}，",
-      message: "感谢您注册 TinyShip。要完成注册，请点击下方按钮验证您的电子邮箱地址。",
+      message: "感谢您注册 飞书 CLI。要完成注册，请点击下方按钮验证您的电子邮箱地址。",
       button: "验证邮箱地址",
       alternativeText: "或者，您可以复制并粘贴以下链接到浏览器中：",
       expiry: "此链接将在 {{expiry_hours}} 小时后过期。",
       disclaimer: "如果您没有请求此验证，请忽略此邮件。",
-      signature: "祝您使用愉快，TinyShip 团队",
-      copyright: "© {{year}} TinyShip. 保留所有权利。"
+      signature: "祝您使用愉快，飞书 CLI 团队",
+      copyright: "© {{year}} 飞书 CLI. 保留所有权利。"
     },
     resetPassword: {
-      subject: "重置您的 TinyShip 密码",
+      subject: "重置您的 飞书 CLI 密码",
       title: "重置您的密码",
       greeting: "您好 {{name}}，",
       message: "我们收到了重置您密码的请求。请点击下方按钮创建新密码。如果您没有提出此请求，可以安全地忽略此邮件。",
@@ -94,40 +94,40 @@ export const zhCN: Locale = {
       alternativeText: "或者，您可以复制并粘贴以下链接到浏览器中：",
       expiry: "此链接将在 {{expiry_hours}} 小时后过期。",
       disclaimer: "如果您没有请求重置密码，无需进行任何操作。",
-      signature: "祝您使用愉快，TinyShip 团队",
-      copyright: "© {{year}} TinyShip. 保留所有权利。"
+      signature: "祝您使用愉快，飞书 CLI 团队",
+      copyright: "© {{year}} 飞书 CLI. 保留所有权利。"
     }
   },
   auth: {
     metadata: {
       signin: {
-        title: "TinyShip - 登录",
-        description: "登录您的 TinyShip 账户，访问仪表板、管理订阅并使用高级功能。",
+        title: "飞书 CLI - 登录",
+        description: "登录您的 飞书 CLI 账户，访问仪表板、管理订阅并使用高级功能。",
         keywords: "登录, 账户登录, 身份验证, 访问账户, 仪表板"
       },
       signup: {
-        title: "TinyShip - 创建账户",
-        description: "创建您的 TinyShip 账户，开始使用我们全面的脚手架构建出色的 SaaS 应用程序。",
+        title: "飞书 CLI - 创建账户",
+        description: "创建您的 飞书 CLI 账户，开始使用我们全面的脚手架构建出色的 SaaS 应用程序。",
         keywords: "注册, 创建账户, 新用户, 开始使用, 账户注册"
       },
       forgotPassword: {
-        title: "TinyShip - 重置密码",
-        description: "安全地重置您的 TinyShip 账户密码。输入您的邮箱以接收密码重置说明。",
+        title: "飞书 CLI - 重置密码",
+        description: "安全地重置您的 飞书 CLI 账户密码。输入您的邮箱以接收密码重置说明。",
         keywords: "忘记密码, 重置密码, 密码恢复, 账户恢复"
       },
       resetPassword: {
-        title: "TinyShip - 创建新密码",
-        description: "为您的 TinyShip 账户创建新的安全密码。选择强密码来保护您的账户。",
+        title: "飞书 CLI - 创建新密码",
+        description: "为您的 飞书 CLI 账户创建新的安全密码。选择强密码来保护您的账户。",
         keywords: "新密码, 密码重置, 安全密码, 账户安全"
       },
       phone: {
-        title: "TinyShip - 手机登录",
-        description: "使用手机号登录 TinyShip。通过短信验证进行快速安全的身份验证。",
+        title: "飞书 CLI - 手机登录",
+        description: "使用手机号登录 飞书 CLI。通过短信验证进行快速安全的身份验证。",
         keywords: "手机登录, 短信验证, 移动端认证, 手机号码"
       },
       wechat: {
-        title: "TinyShip - 微信登录",
-        description: "使用微信账户登录 TinyShip。为中国用户提供便捷的身份验证。",
+        title: "飞书 CLI - 微信登录",
+        description: "使用微信账户登录 飞书 CLI。为中国用户提供便捷的身份验证。",
         keywords: "微信登录, WeChat登录, 社交登录, 中国认证"
       }
     },
@@ -176,7 +176,7 @@ export const zhCN: Locale = {
       }
     },
     signup: {
-      title: "注册 TinyShip",
+      title: "注册 飞书 CLI",
       createAccount: "创建账户",
       socialSignup: "使用您喜欢的社交账号注册",
       continueWith: "或继续使用",
@@ -382,7 +382,7 @@ export const zhCN: Locale = {
   },
   admin: {
     metadata: {
-      title: "TinyShip - 管理后台",
+      title: "飞书 CLI - 管理后台",
       description: "全面的管理仪表板，用于管理用户、订阅、订单和系统分析，为您的SaaS应用提供强大的管理功能。",
       keywords: "管理后台, 仪表板, 管理, SaaS, 分析, 用户, 订阅, 订单"
     },
@@ -835,7 +835,7 @@ export const zhCN: Locale = {
   },
   pricing: {
     metadata: {
-      title: "TinyShip - 定价方案",
+      title: "飞书 CLI - 定价方案",
       description: "选择最适合您需求的完美方案。灵活的定价选项包括月度、年度和终身订阅，享受高级功能。",
               keywords: "定价, 方案, 订阅, 月度, 年度, 终身, 高级, 功能"
     },
@@ -900,12 +900,12 @@ export const zhCN: Locale = {
   payment: {
     metadata: {
       success: {
-        title: "TinyShip - 支付成功",
+        title: "飞书 CLI - 支付成功",
         description: "您的支付已成功处理。感谢您的订阅，欢迎使用我们的高级功能。",
         keywords: "支付, 成功, 订阅, 确认, 高级功能"
       },
       cancel: {
-        title: "TinyShip - 支付已取消",
+        title: "飞书 CLI - 支付已取消",
         description: "您的支付已被取消。您可以重新尝试支付或联系我们的客服团队获取帮助。",
         keywords: "支付, 取消, 重试, 客服, 订阅"
       }
@@ -944,7 +944,7 @@ export const zhCN: Locale = {
   },
   subscription: {
     metadata: {
-      title: "TinyShip - 我的订阅",
+      title: "飞书 CLI - 我的订阅",
       description: "在您的订阅仪表板中管理订阅计划、查看账单历史和更新付款方式。",
               keywords: "订阅, 账单, 支付, 计划, 管理, 仪表板"
     },
@@ -973,7 +973,7 @@ export const zhCN: Locale = {
   },
   dashboard: {
     metadata: {
-      title: "TinyShip - 仪表盘",
+      title: "飞书 CLI - 仪表盘",
       description: "在您的个性化仪表盘中管理账户、订阅和个人资料设置。",
               keywords: "仪表盘, 账户, 个人资料, 订阅, 设置, 管理"
     },
@@ -1229,7 +1229,7 @@ export const zhCN: Locale = {
   },
   premiumFeatures: {
     metadata: {
-      title: "TinyShip - 高级功能",
+      title: "飞书 CLI - 高级功能",
       description: "探索您的订阅包含的所有高级功能。访问高级工具、AI 助手和增强功能。",
       keywords: "高级功能, 功能, 高级, 工具, 订阅, 权益, 增强"
     },
@@ -1278,7 +1278,7 @@ export const zhCN: Locale = {
   },
   ai: {
     metadata: {
-      title: "TinyShip - AI 助手",
+      title: "飞书 CLI - AI 助手",
       description: "与强大的 AI 模型互动，包括 GPT-4、通义千问和 DeepSeek。获得编程、写作和问题解决的 AI 帮助。",
               keywords: "AI, 助手, 聊天机器人, GPT-4, 人工智能, 机器学习, 对话"
     },
@@ -1337,7 +1337,7 @@ export const zhCN: Locale = {
     },
     image: {
       metadata: {
-        title: "TinyShip - AI 图像生成",
+        title: "飞书 CLI - AI 图像生成",
         description: "使用 AI 生成精美图像。支持通义千问图像、fal.ai Flux、OpenAI DALL-E 和 Google Gemini。",
         keywords: "AI, 图像生成, DALL-E, Flux, 通义千问, Gemini, 文生图, 艺术, 创意"
       },
@@ -1415,7 +1415,7 @@ export const zhCN: Locale = {
     },
     video: {
       metadata: {
-        title: "TinyShip - AI 视频生成",
+        title: "飞书 CLI - AI 视频生成",
         description: "使用 AI 生成精彩视频。支持 fal.ai、火山引擎 Seedance 和阿里云万象。",
         keywords: "AI, 视频生成, 文生视频, Seedance, 万象, Luma, 创意"
       },
@@ -1507,236 +1507,417 @@ export const zhCN: Locale = {
   },
   home: {
     metadata: {
-      title: "TinyShip - 现代化全栈 SaaS 开发启动器",
-      description: "现代化、功能齐全的 monorepo 启动套件，用于构建支持国内外双市场的 SaaS 应用程序。基于 Next.js/Nuxt.js、TypeScript 和完整认证系统构建。",
-      keywords: "SaaS, monorepo, 启动套件, Next.js, Nuxt.js, TypeScript, 认证, 国际化, 中国市场, 国际市场"
+      title: "飞书 CLI - 飞书官方命令行工具 | AI Agent 驱动的企业级效率工具",
+      description: "飞书 CLI 是飞书官方开源命令行工具，覆盖日历、消息、文档、多维表格等 11 大业务领域，200+ 精选命令，19 个 AI Agent 技能，支持 Claude Code、Cursor 等主流 AI 编程工具。",
+      keywords: "飞书CLI, 飞书命令行, Lark CLI, 飞书API, AI Agent, Claude Code, 飞书自动化, 飞书开发者工具, 飞书效率工具"
     },
     hero: {
-      title: "虽然是小船，也能载你远航",
-      titlePrefix: "虽然是",
-      titleHighlight: "小船",
-      titleSuffix: "，也能载你远航",
-      subtitle: "现代化全栈 SaaS 开发平台，支持国内外双市场。一次购买，终身使用，快速构建你的商业项目。",
+      title: "飞书 CLI：用命令行驾驭飞书",
+      titlePrefix: "飞书 CLI：用",
+      titleHighlight: "命令行",
+      titleSuffix: "驾驭飞书",
+      subtitle: "飞书官方开源 CLI 工具，覆盖 11 大业务领域、200+ 精选命令、19 个 AI Agent 技能。让 AI 帮你操作飞书，从此效率翻倍。",
       buttons: {
-        purchase: "立即购买",
-        demo: "查看演示"
+        purchase: "npm install -g @larksuite/cli",
+        demo: "查看 GitHub"
       },
       features: {
-        lifetime: "一次购买终身使用",
-        earlyBird: "早鸟价限时优惠"
+        lifetime: "MIT 开源 · 免费使用",
+        earlyBird: "5,900+ GitHub Stars"
       }
     },
     features: {
-      title: "全栈 SaaS 开发平台",
-      subtitle: "从双框架支持到 AI 集成，从全球化到本土化，TinyShip 为你的商业项目提供完整的现代化技术解决方案。",
+      title: "为什么选择飞书 CLI",
+      subtitle: "从命令行到 AI Agent，飞书 CLI 为个人用户和开发者提供最高效的飞书自动化解决方案。",
       items: [
         {
-          title: "双框架支持",
-          description: "灵活选择 Next.js 或 Nuxt.js，React 和 Vue 开发者都能找到熟悉的技术栈，同时享受相同的强大后端能力。",
+          title: "11 大业务领域",
+          description: "覆盖日历、即时通讯、云文档、多维表格、电子表格、任务、邮件、知识库、云空间、通讯录、视频会议，一个工具搞定所有飞书操作。",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "全面身份认证",
-          description: "基于 Better-Auth 的企业级认证系统，支持邮箱/手机/OAuth 登录，2FA 多因子认证，会话管理等完整认证体系。",
+          title: "3 层命令架构",
+          description: "快捷命令（+前缀）适合日常使用，API 命令覆盖 100+ 端点，原生 API 调用支持 2500+ 飞书开放平台接口，满足从简单到复杂的所有需求。",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "全球化 + 本土化",
-          description: "既支持国际市场的 Stripe、OAuth 登录，也深度适配中国本土市场的微信登录、微信支付，双市场无缝覆盖。",
+          title: "19 个 AI Agent 技能",
+          description: "内置 19 个结构化 Skills，与 Claude Code、Cursor、Qwen Code 等主流 AI 编程工具深度集成，AI Agent 可零配置操作飞书。",
           className: "col-span-2 row-span-1"
         },
         {
-          title: "现代化技术栈",
-          description: "采用最新技术：TailwindCSS v4、shadcn/ui、Magic UI、TypeScript、Zod 类型安全验证，开发体验极佳。",
+          title: "多 AI 工具支持",
+          description: "原生支持 Claude Code、Qwen Code、Kimi Code、Cursor 等主流 AI 编程工具，让 AI 成为你的飞书超级助手。",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "无厂商锁定架构",
-          description: "开放式 Monorepo 架构，libs 抽象接口设计，可自由选择任何云服务商、数据库、支付提供商，避免技术绑定。",
+          title: "即装即用",
+          description: "npm install 一行命令安装，扫码授权即可使用。从安装到第一次 API 调用，仅需 3 分钟。支持 NPM 安装和源码编译两种方式。",
           className: "col-span-2 row-span-1"
         },
         {
-          title: "通信服务集成",
-          description: "多渠道通信支持：邮件服务（Resend/SendGrid）、短信服务（阿里云/Twilio），全球化通信无障碍。",
+          title: "200+ 精选命令",
+          description: "每条命令均经过真实 Agent 测试，参数简洁、智能默认值、结构化输出，覆盖飞书全部核心业务场景。",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "AI 开发就绪",
-          description: "集成 Vercel AI SDK，支持多 AI 提供商，内置 Cursor 开发规则，AI 辅助开发，智能化构建应用。",
+          title: "MIT 开源",
+          description: "基于 Go 和 Python 构建，MIT 许可证完全开源。5,900+ GitHub Stars，活跃的社区生态，持续迭代更新。",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "主题系统",
-          description: "基于 shadcn/ui 的现代化主题系统，支持暗黑模式，深度定制和品牌化，让应用拥有独特视觉体验。",
+          title: "企业级安全",
+          description: "官方 OAuth 授权流程，多层安全防护：输入注入防护、终端输出消毒、系统级凭证存储，安全可靠。",
           className: "col-span-1 row-span-1"
         }
       ],
       techStack: {
-        title: "基于现代化技术栈构建",
+        title: "技术栈与生态",
         items: [
-          "Next.js / Nuxt.js",
-          "TailwindCSS v4",
-          "Better-Auth",
-          "Vercel AI SDK",
-          "TypeScript + Zod",
-          "shadcn/ui + Magic UI",
-          "Drizzle ORM + PostgreSQL"
+          "Go + Python",
+          "NPM 全局安装",
+          "Claude Code",
+          "Cursor",
+          "Qwen Code",
+          "19 个 AI Skills",
+          "MIT 开源协议"
         ]
       }
     },
     applicationFeatures: {
-      title: "核心应用特性",
-      subtitle: "从国内外双体系支持到 AI 集成，TinyShip 为你的商业项目提供完整的技术解决方案。",
+      title: "飞书 CLI 核心使用场景",
+      subtitle: "从 AI Agent 协作到日常效率提升，飞书 CLI 让你的飞书工作流全面自动化。",
       items: [
         {
-          title: "国内外双体系支持",
-          subtitle: "一套代码，双市场覆盖",
-          description: "完美适配国内外不同市场需求。国内支持微信登录、手机号登录、微信支付等本土化功能；国外支持主流 OAuth 登录（Google、GitHub、Apple）、Stripe 和 Creem 支付体系。一套代码，双市场覆盖。",
+          title: "AI Agent 协作",
+          subtitle: "让 AI 帮你操作飞书",
+          description: "与 Claude Code、Cursor 等 AI 编程工具深度集成。AI Agent 可以自动创建任务、发送消息、管理日程、查询会议记录，真正实现 AI 驱动的飞书自动化。",
           highlights: [
-            "微信登录 & 手机号登录",
-            "OAuth 登录（Google、GitHub、Apple）",
-            "微信支付 & Stripe & Creem",
-            "国内外无缝切换"
+            "Claude Code 深度集成",
+            "19 个结构化 Skills",
+            "零配置即用",
+            "自然语言操作飞书"
           ],
-          imageTitle: "双体系架构"
+          imageTitle: "AI Agent 协作"
         },
         {
-          title: "内置 Admin Panel",
-          subtitle: "企业级管理后台，开箱即用",
-          description: "开箱即用的管理后台，提供轻量级的用户管理、订阅管理、订单管理等功能。基于现代化 UI 组件库构建，支持角色权限控制、实时数据监控等功能。让你专注于业务逻辑，而非重复的管理界面开发。",
+          title: "日常效率提升",
+          subtitle: "命令行极速操作",
+          description: "用命令行完成日常飞书操作：定时发送群消息、批量回复未读消息、查看近期会议并生成会议总结、快速创建待办任务。告别繁琐的界面操作，效率翻倍。",
           highlights: [
-            "用户管理",
-            "订阅管理",
-            "角色权限控制",
-            "订单管理"
+            "定时发送消息",
+            "会议总结生成",
+            "批量创建待办",
+            "未读消息管理"
           ],
-          imageTitle: "管理后台"
+          imageTitle: "效率提升"
         },
         {
-          title: "AI Ready 集成",
-          subtitle: "基于 Vercel AI SDK，即插即用",
-          description: "基于 Vercel AI SDK 构建的完整 AI 解决方案。内置简易的 AI Chat 页面，支持多种 AI 模型切换（OpenAI、Claude、Gemini 等），让你的应用瞬间具备 AI 能力。",
+          title: "知识库管理",
+          subtitle: "AI 驱动的内容整理",
+          description: "用 AI + CLI 优化飞书知识库内容，自动整理文档结构、生成摘要、批量更新页面。让知识库从堆积变成有序，从混乱变成系统。",
           highlights: [
-            "Vercel AI SDK 集成",
-            "多模型支持（OpenAI、Claude、Gemini 等）",
-            "流式响应",
+            "知识库内容优化",
+            "文档结构整理",
+            "批量页面更新",
+            "AI 辅助写作"
           ],
-          imageTitle: "AI 集成"
+          imageTitle: "知识库管理"
         }
       ]
     },
     roadmap: {
-      title: "产品路线图",
-      subtitle: "持续迭代，不断创新。我们致力于为开发者提供更强大、更灵活的 SaaS 开发解决方案。",
+      title: "飞书 CLI 快速上手指南",
+      subtitle: "从安装到使用，3 分钟完成飞书 CLI 配置，开始用命令行驾驭飞书。",
       items: [
         {
-          title: "核心平台搭建",
-          description: "完成 TinyShip 核心平台的开发，包括双框架支持、身份认证、支付集成、国际化等基础功能模块。",
-          timeline: "2025 Q3",
+          title: "安装 CLI",
+          description: "通过 NPM 一行命令全局安装飞书 CLI，也可以从源码编译安装。",
+          timeline: "步骤 1",
           status: "completed",
-          statusText: "已完成",
-          features: ["双框架支持", "身份认证系统", "支付集成", "国际化支持", "AI 开发就绪", "内置 Admin Panel"]
+          statusText: "npm install",
+          features: ["npm install -g @larksuite/cli", "npx skills add larksuite/cli -y -g"]
         },
         {
-          title: "主题系统升级",
-          description: "推出全新的主题系统，提供多种精美的 UI 主题和布局选择。支持深度定制和品牌化，让你的应用拥有独特的视觉体验。",
-          timeline: "2025 Q3",
+          title: "扫码授权",
+          description: "运行 lark-cli auth login，扫描二维码完成飞书账号授权，选择需要的权限范围。",
+          timeline: "步骤 2",
           status: "completed",
-          statusText: "已完成",
-          features: ["多套 UI 主题", "深色模式支持", "组件库扩展"]
+          statusText: "扫码登录",
+          features: ["lark-cli auth login", "选择权限范围", "OAuth 安全授权"]
         },
         {
-          title: "第三方服务扩展",
-          description: "大幅扩展第三方服务支持，覆盖更多云服务商和 SaaS 工具。通过统一的接口设计，让你轻松切换和集成各种服务提供商。",
-          timeline: "2025 Q4",
+          title: "开始使用",
+          description: "直接在命令行中操作飞书：查看日程、发送消息、创建任务、管理文档，一切尽在指尖。",
+          timeline: "步骤 3",
+          status: "completed",
+          statusText: "开始使用",
+          features: ["lark-cli calendar +agenda", "lark-cli im +send", "lark-cli task +create"]
+        },
+        {
+          title: "AI Agent 集成",
+          description: "安装 AI Agent Skills 后，Claude Code 等工具即可自动操作飞书，实现真正的 AI 驱动工作流。",
+          timeline: "步骤 4",
           status: "in-progress",
-          statusText: "开发中",
-          features: ["更多支付网关", "云存储服务", "更多短信服务商"]
+          statusText: "进阶玩法",
+          features: ["Claude Code 集成", "自然语言操作飞书", "自动化工作流"]
         },
         {
-          title: "博客/文档系统",
-          description: "内置完整的博客和文档管理系统，支持 Markdown 编辑、SEO 优化、评论系统等功能。让你的 SaaS 产品拥有完整的内容营销能力。",
-          timeline: "2026 Q1",
+          title: "探索更多场景",
+          description: "会议总结、知识库优化、定时消息、批量操作...飞书 CLI 的能力远超你的想象。",
+          timeline: "持续探索",
           status: "planned",
-          statusText: "计划中",
-          features: ["博客系统", "文档系统", "知识库搜索"]
-        },
-
-        {
-          title: "视频教程体系",
-          description: "制作完整的视频教程系列，从基础使用到高级定制，帮助开发者快速掌握 TinyShip 的各项功能和最佳实践。",
-          timeline: "2026 Q3",
-          status: "planned",
-          statusText: "计划中",
-          features: ["入门教程", "进阶开发", "部署指南", "实战案例"]
+          statusText: "无限可能",
+          features: ["会议总结", "知识库管理", "批量操作", "自定义工作流"]
         },
         {
-          title: "行业模板库",
-          description: "针对不同行业和应用场景，提供开箱即用的项目模板。每个模板都包含完整的业务逻辑、UI 设计和最佳实践，让你快速启动项目。作为基础版本的扩展包，需要单独购买，但基础版本用户享受大力度优惠。",
-          timeline: "2026 Q4",
+          title: "社区共建",
+          description: "加入飞书 CLI 社区，分享使用案例，参与创作者大赛，与其他开发者交流最佳实践。",
+          timeline: "社区",
           status: "planned",
-          statusText: "计划中",
-          features: ["SaaS 应用模板", "软件售卖模板", "AI 项目模板", "电商平台模板", "企业官网模板", "基础版用户专享优惠"]
+          statusText: "加入我们",
+          features: ["创作者大赛", "使用案例分享", "最佳实践", "社区贡献"]
         }
       ],
-      footer: "持续更新中，敬请期待更多功能..."
+      footer: "更多使用场景和技巧，请关注我们的博客..."
     },
     stats: {
-      title: "值得信赖的选择",
+      title: "飞书 CLI 数据一览",
       items: [
         {
-          value: "10000",
+          value: "5900",
           suffix: "+",
-          label: "用户选择"
+          label: "GitHub Stars"
         },
         {
-          value: "2",
+          value: "11",
           suffix: "",
-          label: "前端框架支持"
+          label: "业务领域"
         },
         {
-          value: "50",
+          value: "200",
           suffix: "+",
-          label: "内置功能模块"
+          label: "精选命令"
         },
         {
-          value: "99",
-          suffix: "%",
-          label: "用户满意度"
+          value: "19",
+          suffix: "",
+          label: "AI Agent 技能"
         }
       ]
     },
     testimonials: {
-      title: "用户真实反馈",
+      title: "飞书 CLI KOL 测评推荐",
       items: [
         {
-          quote: "早鸟价太值了！完整的源码和终身更新，帮我快速搭建了自己的 SaaS 项目，一个月就回本了。",
-          author: "张伟",
-          role: "独立开发者"
+          quote: "飞书 CLI 开源了，我用 Claude Code 玩转几大企业级场景，绝了！从日程管理到群消息自动化，CLI 的效率远超想象。",
+          author: "甲木",
+          role: "技术 KOL"
         },
         {
-          quote: "技术支持很给力，遇到问题都能快速解决。双框架支持让团队可以选择熟悉的技术栈。",
-          author: "李小明",
-          role: "创业公司 CTO"
+          quote: "我让 AI 直接操作我的飞书，结果它比我还熟练。飞书 CLI + Claude Code 的组合，是我见过最强的企业效率工具。",
+          author: "黄叔",
+          role: "技术创作者"
         },
         {
-          quote: "出海功能特别实用，国际化和支付都配置好了，省了我们大量的开发时间。",
-          author: "王芳",
-          role: "产品经理"
+          quote: "飞书 CLI 直接开源，为所有 AI 打开了大门。这不只是一个命令行工具，这是 AI Agent 时代的基础设施。",
+          author: "小互",
+          role: "技术评论人"
         }
       ]
     },
+    domains: {
+      title: "飞书 CLI 覆盖 11 大业务领域",
+      subtitle: "一个命令行工具，管理你所有的飞书工作流——从消息到会议，从文档到数据库。",
+      items: [
+        { icon: "MessageSquare", name: "即时通讯", description: "发送消息、管理群聊、搜索对话、下载媒体文件" },
+        { icon: "FileText", name: "云文档", description: "创建、编辑、搜索文档，支持 Markdown" },
+        { icon: "Database", name: "多维表格", description: "管理数据表、字段、记录、视图、仪表盘和自动化" },
+        { icon: "Table2", name: "电子表格", description: "增删改查、数据追加、搜索和导出" },
+        { icon: "Calendar", name: "日历", description: "查看日程、创建活动、查询忙闲、智能排期" },
+        { icon: "CheckSquare", name: "任务", description: "创建任务、管理子任务、设置提醒、更新状态" },
+        { icon: "Mail", name: "邮件", description: "浏览、搜索、阅读、撰写和管理邮件草稿" },
+        { icon: "BookOpen", name: "知识库", description: "管理知识空间、组织文档层级结构" },
+        { icon: "HardDrive", name: "云空间", description: "上传下载文件、管理权限、处理评论" },
+        { icon: "Users", name: "通讯录", description: "按姓名、邮箱或手机号搜索用户，获取资料" },
+        { icon: "Video", name: "视频会议", description: "搜索录制、获取会议纪要、待办事项和文字记录" }
+      ]
+    },
+    commandShowcase: {
+      title: "飞书 CLI 的三层命令架构",
+      subtitle: "从快捷命令到完整 API 调用，飞书 CLI 适配不同复杂度的需求。",
+      tiers: [
+        {
+          name: "快捷命令",
+          badge: "+ 前缀",
+          description: "对用户和 AI Agent 友好，智能默认值，格式化输出",
+          commands: [
+            "lark-cli calendar +agenda",
+            "lark-cli im +send --chat-id \"oc_xxx\" --text \"你好\"",
+            "lark-cli task +create --title \"审查 PR\""
+          ]
+        },
+        {
+          name: "API 命令",
+          badge: "100+ 端点",
+          description: "自动生成的精选命令，映射到平台 API 端点",
+          commands: [
+            "lark-cli calendar calendars list",
+            "lark-cli im messages list --params '{...}'",
+            "lark-cli docs documents create --body '{...}'"
+          ]
+        },
+        {
+          name: "原生 API 调用",
+          badge: "2500+ APIs",
+          description: "直接调用飞书开放平台全部 API，灵活无限制",
+          commands: [
+            "lark-cli api GET /open-apis/calendar/v4/calendars",
+            "lark-cli api POST /open-apis/im/v1/messages --body '{...}'"
+          ]
+        }
+      ]
+    },
+    useCases: {
+      title: "飞书 CLI 真实使用场景",
+      subtitle: "看看团队和个人如何用飞书 CLI + AI Agent 自动化真实业务工作流。",
+      items: [
+        {
+          title: "会议纪要自动跟进",
+          description: "AI Agent 从会议录音中提取待办事项，自动创建任务、指定负责人、安排后续会议——全部通过飞书 CLI 命令完成。",
+          command: "「从昨天的产品同步会中提取待办事项，为每位负责人创建任务」"
+        },
+        {
+          title: "智能跨时区排期",
+          description: "Agent 分析所有参会者的日历和时区，找到最佳会议时间窗口，并发送日历邀请——节省大量来回沟通时间。",
+          command: "「找到下周纽约、伦敦和北京团队都有空的时间段」"
+        },
+        {
+          title: "会议时间分析仪表盘",
+          description: "自动分类两周的日程事件，填入多维表格，生成仪表盘展示各项目和会议类型的时间分配情况。",
+          command: "「分析我过去两周的日历，创建一个时间追踪仪表盘」"
+        },
+        {
+          title: "智能邮件分流处理",
+          description: "扫描未读邮件，按重要性排序，将重要邮件摘要推送到群聊，自动归档低优先级邮件，并起草回复。",
+          command: "「审查未读邮件，将重要的发到项目群，起草回复」"
+        }
+      ]
+    },
+    faq: {
+      title: "飞书 CLI 常见问题",
+      items: [
+        {
+          question: "飞书 CLI 免费吗？",
+          answer: "是的。飞书 CLI 基于 MIT 许可证完全开源免费，使用 npm 安装即可使用，无需注册或审批。"
+        },
+        {
+          question: "飞书 CLI 支持哪些 AI 工具？",
+          answer: "飞书 CLI 通过 19 个内置 AI Agent 技能，原生支持 Claude Code、Cursor、Qwen Code、Kimi Code、Trae 等主流 AI 编程工具。AI Agent 可零配置操作飞书。"
+        },
+        {
+          question: "使用 AI Agent 操作飞书数据安全吗？",
+          answer: "飞书 CLI 实现了多层安全防护：输入注入保护、终端输出消毒、系统级凭证存储。但 AI Agent 使用你的授权身份执行操作，请仔细审查授权范围。"
+        },
+        {
+          question: "安装飞书 CLI 需要多长时间？",
+          answer: "大约 3 分钟。运行 npm install 安装，扫描二维码授权，即可执行第一条命令。从安装到第一次 API 调用的流程设计极其流畅。"
+        },
+        {
+          question: "飞书 CLI 支持国际版 Lark 吗？",
+          answer: "支持。飞书 CLI 同时支持国际版 Lark 和国内版飞书平台，CLI 会自动处理 API 端点差异。"
+        },
+        {
+          question: "不用 AI 工具也能用飞书 CLI 吗？",
+          answer: "当然可以。虽然 19 个 AI Agent 技能是亮点功能，但飞书 CLI 完全可以作为独立的命令行工具使用。200+ 精选命令同时为人和 AI 设计。"
+        }
+      ]
+    },
+    community: {
+      title: "飞书 CLI 社区共创",
+      subtitle: "来自社区成员和 KOL 的真实使用案例和深度测评",
+      contest: {
+        title: "飞书 CLI 创作者大赛",
+        description: "参与社区共创，分享你的飞书 CLI 使用案例，赢取奖励。",
+        cta: "了解详情"
+      },
+      cases: {
+        title: "社区案例合集",
+        items: [
+          {
+            title: "CLI 零基础入门科普",
+            description: "用生活化比喻解释 CLI 概念，帮助完全不懂编程的用户理解命令行与图形界面的区别。",
+            tag: "入门"
+          },
+          {
+            title: "飞书 CLI 画板功能全景图",
+            description: "系统介绍 lark-cli 的安装、初始化配置、用户登录、身份切换等核心功能完整使用手册。",
+            tag: "功能"
+          },
+          {
+            title: "飞书 CLI 整理知识库",
+            description: "知识库内容重组方案，分析 31 个子节点并提出归并为 7-10 个分类的优化建议。",
+            tag: "知识库"
+          },
+          {
+            title: "飞书 CLI 直出深度文章",
+            description: "AI 自动调研生成的深度内容，涵盖 16 位 AI Builder 的背景、洞察和代表性观点。",
+            tag: "内容创作"
+          },
+          {
+            title: "自动生成活动策划方案",
+            description: "由飞书 CLI 根据会议纪要自动生成的完整活动策划方案，涵盖三天日程和分享环节。",
+            tag: "自动化"
+          },
+          {
+            title: "群聊内容自动收录",
+            description: "自动收录和整理群聊中的优质内容，构建结构化知识库。",
+            tag: "效率"
+          }
+        ]
+      },
+      kols: {
+        title: "KOL 深度测评",
+        items: [
+          {
+            quote: "飞书 CLI 开源了，我用 Claude Code 玩转几大企业级场景，绝了！从日程管理到群消息自动化，CLI 的效率远超想象。",
+            author: "甲木",
+            role: "技术 KOL"
+          },
+          {
+            quote: "我让 AI 直接操作我的飞书，结果它比我还熟练。飞书 CLI + Claude Code 的组合，是我见过最强的企业效率工具。",
+            author: "黄叔",
+            role: "技术创作者"
+          },
+          {
+            quote: "飞书 CLI 直接开源，为所有 AI 打开了大门。这不只是一个命令行工具，这是 AI Agent 时代的基础设施。",
+            author: "小互",
+            role: "技术评论人"
+          },
+          {
+            quote: "一文说清楚飞书、企微 CLI 究竟是什么，怎么用？附 8 大玩法，从入门到进阶全覆盖。",
+            author: "冷逸",
+            role: "技术博主"
+          }
+        ]
+      }
+    },
     finalCta: {
-      title: "准备好开始你的远航了吗？",
-      subtitle: "加入数千名用户的行列，用 TinyShip 快速构建你的下一个商业项目。虽然是小船，但足以载你驶向成功的彼岸。早鸟价仅限前 100 名用户！",
+      subtitle: "一行命令安装，三分钟上手。让 AI 成为你的飞书超级助手，效率从此翻倍。",
       buttons: {
-        purchase: "立即抢购 ¥299",
-        demo: "查看演示"
+        purchase: "npm install -g @larksuite/cli",
+        demo: "查看 GitHub"
       }
     },
     footer: {
-      copyright: "© {year} TinyShip. All rights reserved.",
-      description: "TinyShip"
+      copyright: "© {year} 飞书 CLI. All rights reserved.",
+      description: "飞书 CLI - 飞书官方命令行工具",
+      disclaimer: "本网站为第三方社区项目，与飞书（Lark）及字节跳动官方无关。飞书、Lark 及相关标识为字节跳动的商标。",
+      links: {
+        officialDocs: "官方帮助文档",
+        github: "GitHub",
+        community: "WaytoAGI 社区"
+      }
     },
     common: {
       demoInterface: "功能演示界面",
@@ -1828,7 +2009,9 @@ export const zhCN: Locale = {
       upload: "文件上传",
       demos: "功能演示",
       demosDescription: "探索示例功能",
-      blog: "博客"
+      blog: "博客",
+      useCases: "使用场景",
+      quickstart: "快速上手"
     },
     demos: {
       ai: {
@@ -1876,7 +2059,7 @@ export const zhCN: Locale = {
   },
   docs: {
     home: {
-      title: "TinyShip Docs",
+      title: "飞书 CLI Docs",
       subtitle: "基于 Fumadocs 构建",
       description: "基于 Fumadocs 的静态站点项目，适用于文档、博客和静态页面。",
       cta: {
@@ -1890,7 +2073,7 @@ export const zhCN: Locale = {
     },
     blog: {
       title: "博客",
-      description: "来自 TinyShip 团队的最新文章和动态",
+      description: "来自 飞书 CLI 团队的最新文章和动态",
       allPosts: "所有文章",
       previousPage: "← 上一页",
       nextPage: "下一页 →",
@@ -1932,12 +2115,12 @@ export const zhCN: Locale = {
   },
   blog: {
     metadata: {
-      title: "TinyShip - 博客",
-      description: "阅读 TinyShip 团队的最新文章和动态。",
-      keywords: "博客, 文章, 动态, TinyShip, SaaS"
+      title: "飞书 CLI 博客 - 教程、使用案例和最佳实践",
+      description: "飞书 CLI 使用教程、案例分享和最佳实践。学习如何用命令行和 AI Agent 高效操作飞书。",
+      keywords: "飞书CLI教程, 飞书CLI使用, 飞书自动化, AI Agent飞书, Claude Code飞书"
     },
     title: "博客",
-    subtitle: "最新文章和动态",
+    subtitle: "教程、案例和最佳实践",
     readMore: "阅读更多",
     publishedOn: "发布于",
     by: "作者",

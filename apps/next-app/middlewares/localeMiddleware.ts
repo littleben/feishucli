@@ -48,8 +48,17 @@ export function localeMiddleware(request: NextRequest): NextResponse | undefined
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
 
-    // e.g. incoming request is /products?token=123
-    // The new URL is now /en/products?token=123
+    // For default locale (zh-CN), rewrite instead of redirect to keep clean URLs
+    if (locale === i18n.defaultLocale) {
+      return NextResponse.rewrite(
+        new URL(
+          `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}${search}`,
+          request.url
+        )
+      );
+    }
+
+    // For other locales, redirect to add the locale prefix
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}${search}`,
@@ -58,6 +67,14 @@ export function localeMiddleware(request: NextRequest): NextResponse | undefined
     );
   }
 
-  // If locale exists, continue to the next middleware
-  return undefined; 
+  // If someone visits /zh-CN/... explicitly, rewrite to / (clean URL for default locale)
+  if (pathname.startsWith(`/${i18n.defaultLocale}/`) || pathname === `/${i18n.defaultLocale}`) {
+    const pathWithoutLocale = pathname.replace(`/${i18n.defaultLocale}`, '') || '/';
+    return NextResponse.redirect(
+      new URL(`${pathWithoutLocale}${search}`, request.url)
+    );
+  }
+
+  // If locale exists (non-default), continue to the next middleware
+  return undefined;
 } 

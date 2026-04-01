@@ -1,8 +1,8 @@
 {
-  "name": "tinyship",
-  "version": "0.0.1",
+  "name": "feishucli",
+  "version": "1.0.0",
   "private": true,
-  "description": "Tinyship SaaS Template - A comprehensive monorepo for building subscription-based web applications",
+  "description": "飞书 CLI (Lark CLI) - Official command-line tool website for Lark/Feishu",
   "engines": {
     "node": ">=22.0.0"
   },

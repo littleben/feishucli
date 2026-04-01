@@ -19,12 +19,20 @@ export async function generateViewport({ params }: { params: Promise<{ lang: str
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const t = translations[lang as keyof typeof translations];
-  
+  const baseUrl = process.env.APP_BASE_URL || 'http://localhost:7001';
+
   return {
-    metadataBase: new URL(process.env.APP_BASE_URL || 'http://localhost:7001'),
+    metadataBase: new URL(baseUrl),
     title: t.home.metadata.title,
     description: t.home.metadata.description,
     keywords: t.home.metadata.keywords,
+    alternates: {
+      canonical: `${baseUrl}/${lang}`,
+      languages: {
+        'zh-CN': `${baseUrl}/zh-CN`,
+        'en': `${baseUrl}/en`,
+      },
+    },
     icons: {
       icon: [
         { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },

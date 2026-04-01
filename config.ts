@@ -34,7 +34,7 @@ export const config = {
      * Application Name
      * This will be used throughout the application for branding
      */
-    name: 'TinyShip',
+    name: '飞书 CLI',
 
     /**
      * Logo Configuration
@@ -61,7 +61,7 @@ export const config = {
        * Use this to add background color, border, rounded corners, padding, etc.
        * @example 'bg-primary rounded-full p-1' or 'bg-white shadow-sm rounded-lg'
        */
-      iconClassName: 'bg-chart-1 rounded-full p-2' as string,
+      iconClassName: 'bg-blue-600 rounded-lg p-1.5' as string,
     },
 
     /**
@@ -87,12 +87,12 @@ export const config = {
        * Default color scheme
        * @type {'default' | 'claude' | 'cosmic-night' | 'modern-minimal' | 'ocean-breeze'}
        */
-      defaultColorScheme: 'claude' as const,
+      defaultColorScheme: 'default' as const,
 
       /**
        * Storage key for theme persistence
        */
-      storageKey: 'tinyship-ui-theme'
+      storageKey: 'feishucli-ui-theme'
     },
 
     /**

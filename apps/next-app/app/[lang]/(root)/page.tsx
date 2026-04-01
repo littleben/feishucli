@@ -7,24 +7,34 @@ import { useTranslation } from "@/hooks/use-translation";
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import React from "react";
-import { 
-  Check, 
-  Shield, 
-  Globe, 
-  Zap, 
-  BarChart3, 
-  Smartphone, 
-  Star, 
-  CreditCard, 
-  Users, 
-  Brain, 
-  Code, 
-  Layers, 
-  Palette, 
-  Play, 
-  Settings, 
-  FileText, 
-  BookOpen 
+import {
+  Check,
+  Shield,
+  Globe,
+  Zap,
+  BarChart3,
+  Star,
+  CreditCard,
+  Users,
+  Brain,
+  Code,
+  Layers,
+  Palette,
+  Play,
+  Settings,
+  FileText,
+  BookOpen,
+  Calendar,
+  MessageSquare,
+  Terminal,
+  Database,
+  Table2,
+  CheckSquare,
+  Bot,
+  Mail,
+  HardDrive,
+  Video,
+  ChevronDown
 } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { translations } from "@libs/i18n";
@@ -45,10 +55,18 @@ interface PageProps {
 // }
 
 // Icon mappings for features
-const iconMap = [Layers, Shield, Globe, Zap, BarChart3, Smartphone, Brain, Code];
+const iconMap = [Calendar, Layers, Bot, Terminal, Zap, Code, Globe, Shield];
 
-const appIconMap = [Globe, BarChart3, Brain];  
+const appIconMap = [Bot, Zap, BookOpen];
+const appImageMap = [
+  "/images/features/ai-doc-1.png",
+  "/images/features/calendar-demo.png",
+  "/images/features/ai-doc-3.png"
+];
 const roadmapIconMap = [Check, Settings, BookOpen, Palette, Play, FileText];
+const domainIconMap: Record<string, any> = {
+  MessageSquare, FileText, Database, Table2, Calendar, CheckSquare, Mail, BookOpen, HardDrive, Users, Video
+};
 
 // Client component for interactive features
 export default function Home() {
@@ -79,14 +97,15 @@ export default function Home() {
         window.requestAnimationFrame(step);
       };
 
-      animateValue(0, 10000, 2000, (value) => setStats(prev => ({ ...prev, developers: value })));
-      animateValue(0, 2, 2000, (value) => setStats(prev => ({ ...prev, frameworks: value })));
-      animateValue(0, 50, 2500, (value) => setStats(prev => ({ ...prev, features: value })));
-      animateValue(0, 99, 2000, (value) => setStats(prev => ({ ...prev, satisfaction: value })));
+      animateValue(0, 5900, 2000, (value) => setStats(prev => ({ ...prev, developers: value })));
+      animateValue(0, 11, 2000, (value) => setStats(prev => ({ ...prev, frameworks: value })));
+      animateValue(0, 200, 2500, (value) => setStats(prev => ({ ...prev, features: value })));
+      animateValue(0, 19, 2000, (value) => setStats(prev => ({ ...prev, satisfaction: value })));
     }
   }, [isStatsInView]);
 
   const [activeFeature, setActiveFeature] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <>
@@ -150,25 +169,27 @@ export default function Home() {
                 {t.home.hero.subtitle}
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-col sm:flex-row gap-4 pt-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
                 >
                   {t.home.hero.buttons.purchase}
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
-                >
-                  {t.home.hero.buttons.demo}
-                </Button>
+                <a href="https://github.com/larksuite/cli" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
+                  >
+                    {t.home.hero.buttons.demo}
+                  </Button>
+                </a>
               </motion.div>
 
               <motion.div 
@@ -343,17 +364,15 @@ export default function Home() {
                     transition={{ duration: 0.5 }}
                     className="space-y-6"
                   >
-                    {/* Image placeholder */}
-                    <div className="aspect-[16/10] bg-gradient-to-br from-primary/5 to-muted rounded-2xl border border-border flex items-center justify-center overflow-hidden">
-                      <div className="w-full h-full bg-gradient-to-br from-primary/10 to-muted/50 flex items-center justify-center">
-                        <div className="text-center space-y-4">
-                          {React.createElement(appIconMap[activeFeature], {
-                            className: "h-20 w-20 text-primary mx-auto"
-                          })}
-                          <div className="text-muted-foreground font-medium text-lg">{t.home.applicationFeatures.items[activeFeature].imageTitle}</div>
-                          <div className="text-sm text-muted-foreground/80">{t.home.common.demoInterface}</div>
-                        </div>
-                      </div>
+                    {/* Feature image */}
+                    <div className="aspect-[16/10] bg-gradient-to-br from-primary/5 to-muted rounded-2xl border border-border overflow-hidden">
+                      <Image
+                        src={appImageMap[activeFeature]}
+                        alt={t.home.applicationFeatures.items[activeFeature].imageTitle}
+                        width={800}
+                        height={500}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
 
                     {/* Description */}
@@ -387,10 +406,149 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Roadmap Section */}
+        {/* Domains Section */}
+        <section className="py-24 bg-muted/50">
+          <div className="container px-4 md:px-6">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                {t.home.domains.title}
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                {t.home.domains.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              {t.home.domains.items.map((domain: any, index: number) => {
+                const IconComponent = domainIconMap[domain.icon] || Globe;
+                return (
+                  <motion.div
+                    key={index}
+                    className="p-5 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.03 }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <IconComponent className="h-5 w-5 text-primary" />
+                      </div>
+                      <h3 className="font-semibold text-foreground text-sm">{domain.name}</h3>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{domain.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Command Showcase Section */}
         <section className="py-24 bg-background">
           <div className="container px-4 md:px-6">
-            <motion.div 
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                {t.home.commandShowcase.title}
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                {t.home.commandShowcase.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {t.home.commandShowcase.tiers.map((tier: any, index: number) => (
+                <motion.div
+                  key={index}
+                  className="rounded-2xl border-2 border-border bg-card overflow-hidden hover:border-primary/30 hover:shadow-xl transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="p-6 border-b border-border bg-muted/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-lg font-bold text-foreground">{tier.name}</h3>
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary">{tier.badge}</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">{tier.description}</p>
+                  </div>
+                  <div className="p-4 space-y-2">
+                    {tier.commands.map((cmd: string, idx: number) => (
+                      <div key={idx} className="bg-muted/50 rounded-lg p-3 font-mono text-xs text-foreground overflow-x-auto">
+                        <span className="text-primary/70">$</span> {cmd}
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Use Cases Section */}
+        <section className="py-24 bg-muted/50" id="use-cases">
+          <div className="container px-4 md:px-6">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                {t.home.useCases.title}
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                {t.home.useCases.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {t.home.useCases.items.map((useCase: any, index: number) => (
+                <motion.div
+                  key={index}
+                  className="p-6 rounded-2xl bg-card border border-border hover:shadow-lg transition-all duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-chart-1/10 flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-chart-1 font-bold text-lg">{index + 1}</span>
+                    </div>
+                    <div className="space-y-3">
+                      <h3 className="text-lg font-bold text-foreground">{useCase.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{useCase.description}</p>
+                      <div className="bg-muted/50 rounded-lg p-3 border border-border">
+                        <p className="text-xs font-mono text-primary/80 italic">{useCase.command}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Roadmap Section */}
+        <section className="py-24 bg-background" id="quickstart">
+          <div className="container px-4 md:px-6">
+            <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -530,65 +688,29 @@ export default function Home() {
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
-                  {stats.developers.toLocaleString()}+
-                </div>
-                <div className="text-muted-foreground">{t.home.stats.items.users}</div>
-              </motion.div>
-              
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
-                  {stats.frameworks}
-                </div>
-                <div className="text-muted-foreground">{t.home.stats.items.frameworks}</div>
-              </motion.div>
-              
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
-                  {stats.features}+
-                </div>
-                <div className="text-muted-foreground">{t.home.stats.items.features}</div>
-              </motion.div>
-              
-              <motion.div 
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
-                  {stats.satisfaction}%
-                </div>
-                <div className="text-muted-foreground">{t.home.stats.items.satisfaction}</div>
-              </motion.div>
+              {t.home.stats.items.map((item: any, index: number) => (
+                <motion.div
+                  key={index}
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
+                  viewport={{ once: true }}
+                >
+                  <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
+                    {[stats.developers, stats.frameworks, stats.features, stats.satisfaction][index].toLocaleString()}{item.suffix}
+                  </div>
+                  <div className="text-muted-foreground">{item.label}</div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-24 bg-muted/50">
+        {/* Community Section */}
+        <section className="py-24 bg-muted/50" id="community">
           <div className="container px-4 md:px-6">
-            <motion.div 
+            <motion.div
               className="text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -596,41 +718,141 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                {t.home.testimonials.title}
+                {t.home.community.title}
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                {t.home.community.subtitle}
+              </p>
+            </motion.div>
+
+            {/* Creator Contest Banner */}
+            <motion.div
+              className="max-w-4xl mx-auto mb-12 p-6 rounded-2xl bg-gradient-to-r from-chart-1/10 to-chart-2/10 border-2 border-chart-1/20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-bold text-foreground mb-1">{t.home.community.contest.title}</h3>
+                  <p className="text-muted-foreground">{t.home.community.contest.description}</p>
+                </div>
+                <a href="https://waytoagi.feishu.cn/wiki/Zsp2wxsKEiRTEjkajJFc7FBGnh3" target="_blank" rel="noopener noreferrer">
+                  <Button variant="default" className="rounded-full whitespace-nowrap">
+                    {t.home.community.contest.cta}
+                  </Button>
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Community Cases */}
+            <div className="max-w-5xl mx-auto mb-16">
+              <h3 className="text-2xl font-bold text-foreground mb-8 text-center">{t.home.community.cases.title}</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {t.home.community.cases.items.map((caseItem: any, index: number) => (
+                  <motion.div
+                    key={index}
+                    className="p-5 rounded-xl bg-card border border-border hover:shadow-md transition-all duration-300"
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">{caseItem.tag}</span>
+                    </div>
+                    <h4 className="font-semibold text-foreground mb-2 text-sm">{caseItem.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{caseItem.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* KOL Reviews */}
+            <div className="max-w-5xl mx-auto">
+              <h3 className="text-2xl font-bold text-foreground mb-8 text-center">{t.home.community.kols.title}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {t.home.community.kols.items.map((kol: any, index: number) => (
+                  <motion.div
+                    key={index}
+                    className="bg-card p-6 rounded-2xl border border-border hover:shadow-lg transition-all duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="flex mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 text-chart-5 fill-current" />
+                      ))}
+                    </div>
+                    <p className="text-muted-foreground mb-4 leading-relaxed text-sm">"{kol.quote}"</p>
+                    <div className="flex items-center">
+                      <div
+                        className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold mr-3 ${
+                          index === 0 ? 'bg-chart-1' :
+                          index === 1 ? 'bg-chart-3' :
+                          index === 2 ? 'bg-chart-5' :
+                          'bg-chart-2'
+                        }`}
+                      >
+                        {kol.author[0]}
+                      </div>
+                      <div>
+                        <div className="font-semibold text-foreground text-sm">{kol.author}</div>
+                        <div className="text-muted-foreground text-xs">{kol.role}</div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 bg-background">
+          <div className="container px-4 md:px-6">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                {t.home.faq.title}
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {t.home.testimonials.items.map((testimonial: any, index: number) => (
+            <div className="max-w-3xl mx-auto space-y-3">
+              {t.home.faq.items.map((item: any, index: number) => (
                 <motion.div
                   key={index}
-                  className="bg-card p-8 rounded-2xl border border-border hover:shadow-lg transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
+                  className="rounded-xl border border-border bg-card overflow-hidden"
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
                   viewport={{ once: true }}
                 >
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-chart-5 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">"{testimonial.quote}"</p>
-                  <div className="flex items-center">
-                    <div 
-                      className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold mr-4 ${
-                        index === 0 ? 'bg-chart-1' : 
-                        index === 1 ? 'bg-chart-3' : 
-                        'bg-chart-5'
-                      }`}
+                  <button
+                    className="w-full flex items-center justify-between p-5 text-left hover:bg-muted/30 transition-colors"
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  >
+                    <span className="font-semibold text-foreground pr-4">{item.question}</span>
+                    <ChevronDown className={`h-5 w-5 text-muted-foreground flex-shrink-0 transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`} />
+                  </button>
+                  {openFaq === index && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      transition={{ duration: 0.2 }}
+                      className="px-5 pb-5"
                     >
-                      {testimonial.author[0]}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-foreground">{testimonial.author}</div>
-                      <div className="text-muted-foreground text-sm">{testimonial.role}</div>
-                    </div>
-                  </div>
+                      <p className="text-muted-foreground leading-relaxed">{item.answer}</p>
+                    </motion.div>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -655,19 +877,21 @@ export default function Home() {
                 {t.home.finalCta.subtitle}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
                 >
                   {t.home.finalCta.buttons.purchase}
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
-                >
-                  {t.home.finalCta.buttons.demo}
-                </Button>
+                <a href="https://github.com/larksuite/cli" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
+                  >
+                    {t.home.finalCta.buttons.demo}
+                  </Button>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -679,23 +903,23 @@ export default function Home() {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="flex items-center mb-4 md:mb-0">
                 <Logo size="md" />
+                <span className="ml-3 text-sm text-muted-foreground">{t.home.footer.description}</span>
               </div>
-              <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
-                <div className="text-muted-foreground text-center md:text-left">
-                  {t.home.footer.copyright.replace('{year}', new Date().getFullYear().toString())}
-                </div>
-                <div className="flex space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center hover:bg-muted/50 transition-colors cursor-pointer">
-                    <span className="text-xs text-foreground">G</span>
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center hover:bg-muted/50 transition-colors cursor-pointer">
-                    <span className="text-xs text-foreground">T</span>
-                  </div>
-                  <div className="w-8 h-8 rounded-full bg-background border border-border flex items-center justify-center hover:bg-muted/50 transition-colors cursor-pointer">
-                    <span className="text-xs text-foreground">D</span>
-                  </div>
-                </div>
+              <div className="flex items-center space-x-6">
+                <a href="https://www.feishu.cn/content/article/7623291503305083853" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {t.home.footer.links.officialDocs}
+                </a>
+                <a href="https://github.com/larksuite/cli" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {t.home.footer.links.github}
+                </a>
+                <a href="https://waytoagi.feishu.cn/wiki/Zsp2wxsKEiRTEjkajJFc7FBGnh3" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {t.home.footer.links.community}
+                </a>
               </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground/60">
+              <span>{t.home.footer.copyright.replace('{year}', new Date().getFullYear().toString())}</span>
+              <span className="mt-2 md:mt-0">{t.home.footer.disclaimer}</span>
             </div>
           </div>
         </footer>

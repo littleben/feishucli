@@ -2,8 +2,8 @@ import type { Locale } from './types'
 
 export const en: Locale = {
   common: {
-    welcome: "Welcome to TinyShip",
-    siteName: "TinyShip",
+    welcome: "Welcome to Lark CLI",
+    siteName: "Lark CLI",
     login: "Login",
     signup: "Sign Up",
     logout: "Logout",
@@ -74,19 +74,19 @@ export const en: Locale = {
   },
   email: {
     verification: {
-      subject: "Verify your TinyShip account",
+      subject: "Verify your Lark CLI account",
       title: "Verify your email address",
       greeting: "Hello {{name}},",
-      message: "Thank you for registering with TinyShip. To complete your registration, please click the button below to verify your email address.",
+      message: "Thank you for registering with Lark CLI. To complete your registration, please click the button below to verify your email address.",
       button: "Verify Email Address",
       alternativeText: "Or, copy and paste the following link into your browser:",
       expiry: "This link will expire in {{expiry_hours}} hours.",
       disclaimer: "If you didn't request this verification, please ignore this email.",
-      signature: "Happy Shipping, The TinyShip Team",
-    copyright: "© {{year}} TinyShip. All rights reserved."
+      signature: "Happy Shipping, The Lark CLI Team",
+    copyright: "© {{year}} Lark CLI. All rights reserved."
     },
     resetPassword: {
-      subject: "Reset your TinyShip password",
+      subject: "Reset your Lark CLI password",
       title: "Reset your password",
       greeting: "Hello {{name}},",
       message: "We received a request to reset your password. Please click the button below to create a new password. If you didn't make this request, you can safely ignore this email.",
@@ -94,40 +94,40 @@ export const en: Locale = {
       alternativeText: "Or, copy and paste the following link into your browser:",
       expiry: "This link will expire in {{expiry_hours}} hours.",
       disclaimer: "If you didn't request a password reset, no action is required.",
-      signature: "Happy Shipping, The TinyShip Team",
-      copyright: "© {{year}} TinyShip. All rights reserved."
+      signature: "Happy Shipping, The Lark CLI Team",
+      copyright: "© {{year}} Lark CLI. All rights reserved."
     }
   },
   auth: {
     metadata: {
       signin: {
-        title: "TinyShip - Sign In",
-        description: "Sign in to your TinyShip account to access your dashboard, manage subscriptions, and use premium features.",
+        title: "Lark CLI - Sign In",
+        description: "Sign in to your Lark CLI account to access your dashboard, manage subscriptions, and use premium features.",
         keywords: "sign in, login, authentication, account access, dashboard"
       },
       signup: {
-        title: "TinyShip - Create Account",
-        description: "Create your TinyShip account and start building amazing SaaS applications with our comprehensive starter kit.",
+        title: "Lark CLI - Create Account",
+        description: "Create your Lark CLI account and start building amazing SaaS applications with our comprehensive starter kit.",
         keywords: "sign up, register, create account, new user, get started"
       },
       forgotPassword: {
-        title: "TinyShip - Reset Password",
-        description: "Reset your TinyShip account password securely. Enter your email to receive password reset instructions.",
+        title: "Lark CLI - Reset Password",
+        description: "Reset your Lark CLI account password securely. Enter your email to receive password reset instructions.",
         keywords: "forgot password, reset password, password recovery, account recovery"
       },
       resetPassword: {
-        title: "TinyShip - Create New Password",
-        description: "Create a new secure password for your TinyShip account. Choose a strong password to protect your account.",
+        title: "Lark CLI - Create New Password",
+        description: "Create a new secure password for your Lark CLI account. Choose a strong password to protect your account.",
         keywords: "new password, password reset, secure password, account security"
       },
       phone: {
-        title: "TinyShip - Phone Login",
-        description: "Sign in to TinyShip using your phone number. Quick and secure authentication with SMS verification.",
+        title: "Lark CLI - Phone Login",
+        description: "Sign in to Lark CLI using your phone number. Quick and secure authentication with SMS verification.",
         keywords: "phone login, SMS verification, mobile authentication, phone number"
       },
       wechat: {
-        title: "TinyShip - WeChat Login",
-        description: "Sign in to TinyShip using your WeChat account. Convenient authentication for Chinese users.",
+        title: "Lark CLI - WeChat Login",
+        description: "Sign in to Lark CLI using your WeChat account. Convenient authentication for Chinese users.",
         keywords: "WeChat login, 微信登录, social login, Chinese authentication"
       }
     },
@@ -176,7 +176,7 @@ export const en: Locale = {
       }
     },
     signup: {
-      title: "Sign up for TinyShip",
+      title: "Sign up for Lark CLI",
       createAccount: "Create an account",
       socialSignup: "Sign up with your favorite social account",
       continueWith: "Or continue with",
@@ -382,7 +382,7 @@ export const en: Locale = {
   },
   admin: {
     metadata: {
-      title: "TinyShip - Admin Dashboard",
+      title: "Lark CLI - Admin Dashboard",
       description: "Comprehensive admin dashboard for managing users, subscriptions, orders, and system analytics in your SaaS application.",
       keywords: "admin, dashboard, management, SaaS, analytics, users, subscriptions, orders"
     },
@@ -828,7 +828,7 @@ export const en: Locale = {
   },
   pricing: {
     metadata: {
-      title: "TinyShip - Pricing Plans",
+      title: "Lark CLI - Pricing Plans",
       description: "Choose the perfect plan for your needs. Flexible pricing options including monthly, yearly, and lifetime subscriptions with premium features.",
       keywords: "pricing, plans, subscription, monthly, yearly, lifetime, premium, features"
     },
@@ -893,12 +893,12 @@ export const en: Locale = {
   payment: {
     metadata: {
       success: {
-        title: "TinyShip - Payment Successful",
+        title: "Lark CLI - Payment Successful",
         description: "Your payment has been processed successfully. Thank you for your subscription and welcome to our premium features.",
         keywords: "payment, success, subscription, confirmation, premium"
       },
       cancel: {
-        title: "TinyShip - Payment Cancelled",
+        title: "Lark CLI - Payment Cancelled",
         description: "Your payment was cancelled. You can retry the payment or contact our support team for assistance.",
         keywords: "payment, cancelled, retry, support, subscription"
       }
@@ -937,7 +937,7 @@ export const en: Locale = {
   },
   subscription: {
     metadata: {
-      title: "TinyShip - My Subscription",
+      title: "Lark CLI - My Subscription",
       description: "Manage your subscription plan, view billing history, and update payment methods in your subscription dashboard.",
       keywords: "subscription, billing, payment, plan, management, dashboard"
     },
@@ -966,7 +966,7 @@ export const en: Locale = {
   },
   dashboard: {
     metadata: {
-      title: "TinyShip - Dashboard",
+      title: "Lark CLI - Dashboard",
       description: "Manage your account, subscriptions, and profile settings in your personalized dashboard.",
       keywords: "dashboard, account, profile, subscription, settings, management"
     },
@@ -1222,235 +1222,417 @@ export const en: Locale = {
   },
   home: {
     metadata: {
-      title: "TinyShip - Modern Full-Stack SaaS Development Starter",
-      description: "A modern, full-featured monorepo starter kit for building SaaS applications with support for both domestic (China) and international markets. Built with Next.js/Nuxt.js, TypeScript, and comprehensive authentication.",
-      keywords: "SaaS, monorepo, starter kit, Next.js, Nuxt.js, TypeScript, authentication, i18n, China market, international"
+      title: "Lark CLI - Official Command-Line Tool for Lark/Feishu | AI Agent-Powered Enterprise Productivity",
+      description: "Lark CLI is the official open-source command-line tool for Lark/Feishu, covering 11 business domains, 200+ curated commands, and 19 AI Agent skills. Works with Claude Code, Cursor, and other mainstream AI coding tools.",
+      keywords: "Lark CLI, Feishu CLI, lark-cli, Feishu API, AI Agent, Claude Code, Lark automation, Lark developer tools, Feishu productivity"
     },
     hero: {
-      title: "Though it's a small boat, it can take you far",
-      titlePrefix: "Though it's a small ",
-      titleHighlight: "boat",
-      titleSuffix: ", it can take you far",
-      subtitle: "Modern full-stack SaaS development platform with dual-market support for both domestic and international markets. One purchase, lifetime use, quickly build your business project.",
+      title: "Lark CLI: Command Your Lark with CLI",
+      titlePrefix: "Lark CLI: Command Your Lark with ",
+      titleHighlight: "CLI",
+      titleSuffix: "",
+      subtitle: "The official open-source CLI tool for Lark/Feishu. 11 business domains, 200+ curated commands, 19 AI Agent skills. Let AI operate Lark for you and double your productivity.",
       buttons: {
-        purchase: "Buy Now",
-        demo: "View Demo"
+        purchase: "npm install -g @larksuite/cli",
+        demo: "View on GitHub"
       },
       features: {
-        lifetime: "One purchase, lifetime use",
-        earlyBird: "Early bird pricing - limited time"
+        lifetime: "MIT Open Source · Free to Use",
+        earlyBird: "5,900+ GitHub Stars"
       }
     },
     features: {
-      title: "Full-Stack SaaS Development Platform",
-      subtitle: "From dual-framework support to AI integration, from globalization to localization, TinyShip provides complete modern technology solutions for your business projects.",
+      title: "Why Choose Lark CLI",
+      subtitle: "From command line to AI Agent, Lark CLI provides the most efficient Lark automation solution for individual users and developers.",
       items: [
         {
-          title: "Dual Framework Support",
-          description: "Flexibly choose Next.js or Nuxt.js, both React and Vue developers can find familiar tech stacks while enjoying the same powerful backend capabilities.",
+          title: "11 Business Domains",
+          description: "Covers Calendar, Instant Messaging, Cloud Docs, Base (Bitable), Sheets, Tasks, Mail, Wiki, Drive, Contacts, and Video Conferencing. One tool for all Lark operations.",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "Comprehensive Authentication",
-          description: "Enterprise-grade authentication system based on Better-Auth, supporting email/phone/OAuth login, 2FA multi-factor authentication, session management and complete authentication system.",
+          title: "3-Tier Command Architecture",
+          description: "Quick commands (+ prefix) for daily use, API commands covering 100+ endpoints, and native API calls supporting 2,500+ Lark Open Platform interfaces for all complexity levels.",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "Global + Localization",
-          description: "Supports international markets with Stripe and OAuth login, also deeply adapts to China's domestic market with WeChat login and WeChat Pay, seamlessly covering dual markets.",
+          title: "19 AI Agent Skills",
+          description: "Built-in 19 structured Skills deeply integrated with Claude Code, Cursor, Qwen Code, and other mainstream AI coding tools. AI Agents can operate Lark with zero configuration.",
           className: "col-span-2 row-span-1"
         },
         {
-          title: "Modern Technology Stack",
-          description: "Uses latest technologies: TailwindCSS v4, shadcn/ui, Magic UI, TypeScript, Zod type-safe validation, excellent development experience.",
+          title: "Multi-AI Tool Support",
+          description: "Native support for Claude Code, Qwen Code, Kimi Code, Cursor, and other mainstream AI coding tools. Let AI become your Lark super assistant.",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "No Vendor Lock-in Architecture",
-          description: "Open Monorepo architecture with libs abstract interface design, freely choose any cloud service providers, databases, payment providers, avoid technology binding.",
+          title: "Install and Go",
+          description: "One npm install command, scan to authorize, and you're ready. From installation to your first API call in just 3 minutes. Supports both NPM install and source compilation.",
           className: "col-span-2 row-span-1"
         },
         {
-          title: "Communication Service Integration",
-          description: "Multi-channel communication support: email services (Resend/SendGrid), SMS services (Alibaba Cloud/Twilio), global communication without barriers.",
+          title: "200+ Curated Commands",
+          description: "Every command is tested with real AI Agents. Clean parameters, smart defaults, structured output — covering all core Lark business scenarios.",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "AI Development Ready",
-          description: "Integrated Vercel AI SDK, supports multiple AI providers, built-in Cursor development rules, AI-assisted development, intelligent application building.",
+          title: "MIT Open Source",
+          description: "Built with Go and Python, fully open-source under MIT license. 5,900+ GitHub Stars with an active community ecosystem and continuous updates.",
           className: "col-span-1 row-span-1"
         },
         {
-          title: "Theme System",
-          description: "Modern theme system based on shadcn/ui with dark mode support, deep customization and branding, making applications have unique visual experience.",
+          title: "Enterprise-Grade Security",
+          description: "Official OAuth authorization flow with multi-layer security: input injection protection, terminal output sanitization, system-level credential storage. Secure and reliable.",
           className: "col-span-1 row-span-1"
         }
       ],
       techStack: {
-        title: "Built on Modern Technology Stack",
+        title: "Tech Stack & Ecosystem",
         items: [
-          "Next.js / Nuxt.js",
-          "TailwindCSS v4",
-          "Better-Auth",
-          "Vercel AI SDK",
-          "TypeScript + Zod",
-          "shadcn/ui + Magic UI",
-          "Drizzle ORM + PostgreSQL"
+          "Go + Python",
+          "NPM Global Install",
+          "Claude Code",
+          "Cursor",
+          "Qwen Code",
+          "19 AI Skills",
+          "MIT License"
         ]
       }
     },
     applicationFeatures: {
-      title: "Core Application Features",
-      subtitle: "From dual-system support for domestic and international markets to AI integration, TinyShip provides complete technical solutions for your business projects.",
+      title: "Lark CLI Core Use Cases",
+      subtitle: "From AI Agent collaboration to daily productivity boosts, Lark CLI fully automates your Lark workflows.",
       items: [
         {
-          title: "Dual System Support",
-          subtitle: "One codebase, dual market coverage",
-          description: "Perfect adaptation to different market needs domestically and internationally. Domestic support for WeChat login, phone login, WeChat Pay and other localized features; International support for mainstream OAuth login (Google, GitHub, Apple), Stripe and Creem payment systems. One codebase, dual market coverage.",
+          title: "AI Agent Collaboration",
+          subtitle: "Let AI operate Lark for you",
+          description: "Deeply integrated with Claude Code, Cursor, and other AI coding tools. AI Agents can automatically create tasks, send messages, manage schedules, and query meeting records — truly AI-driven Lark automation.",
           highlights: [
-            "WeChat login & phone login",
-            "OAuth login (Google, GitHub, Apple)",
-            "WeChat Pay & Stripe & Creem",
-            "Seamless domestic and international switching"
+            "Deep Claude Code integration",
+            "19 structured Skills",
+            "Zero-config ready",
+            "Natural language Lark operations"
           ],
-          imageTitle: "Dual System Architecture"
+          imageTitle: "AI Agent Collaboration"
         },
         {
-          title: "Built-in Admin Panel",
-          subtitle: "Enterprise-grade management backend, ready to use",
-          description: "Ready-to-use management backend providing lightweight user management, subscription management, order management and other functions. Built on modern UI component library, supports role permission control, real-time data monitoring and other functions. Let you focus on business logic, not repetitive management interface development.",
+          title: "Daily Productivity Boost",
+          subtitle: "Lightning-fast command-line operations",
+          description: "Complete daily Lark operations from the command line: schedule messages, batch-reply to unread messages, view upcoming meetings with auto-generated summaries, quickly create to-do tasks. Say goodbye to tedious UI clicks.",
           highlights: [
-            "User management",
-            "Subscription management",
-            "Role permission control",
-            "Order management"
+            "Scheduled messaging",
+            "Meeting summary generation",
+            "Batch task creation",
+            "Unread message management"
           ],
-          imageTitle: "Management Backend"
+          imageTitle: "Productivity Boost"
         },
         {
-          title: "AI Ready Integration",
-          subtitle: "Based on Vercel AI SDK, plug and play",
-          description: "Complete AI solution based on Vercel AI SDK. Built-in simple AI Chat page, supports multiple AI model switching (OpenAI, Claude, Gemini, etc.), making your application instantly AI-capable.",
+          title: "Wiki Management",
+          subtitle: "AI-powered content organization",
+          description: "Use AI + CLI to optimize your Lark Wiki content. Auto-organize document structure, generate summaries, batch-update pages. Transform your knowledge base from cluttered to systematic.",
           highlights: [
-            "Vercel AI SDK integration",
-            "Multi-model support (OpenAI, Claude, Gemini, etc.)",
-            "Streaming responses",
+            "Wiki content optimization",
+            "Document structure organization",
+            "Batch page updates",
+            "AI-assisted writing"
           ],
-          imageTitle: "AI Integration"
+          imageTitle: "Wiki Management"
         }
       ]
     },
     roadmap: {
-      title: "Product Roadmap",
-      subtitle: "Continuous iteration, constant innovation. We are committed to providing developers with more powerful and flexible SaaS development solutions.",
+      title: "Lark CLI Getting Started Guide",
+      subtitle: "From installation to first use — set up Lark CLI in 3 minutes and start commanding Lark from your terminal.",
       items: [
         {
-          title: "Core Platform Development",
-          description: "Complete TinyShip core platform development, including dual framework support, authentication, payment integration, internationalization and other basic functional modules.",
-          timeline: "2025 Q3",
+          title: "Install CLI",
+          description: "Install Lark CLI globally with a single NPM command. Source compilation is also available.",
+          timeline: "Step 1",
           status: "completed",
-          statusText: "Completed",
-          features: ["Dual framework support", "Authentication system", "Payment integration", "Internationalization support", "AI development ready", "Built-in Admin Panel"]
+          statusText: "npm install",
+          features: ["npm install -g @larksuite/cli", "npx skills add larksuite/cli -y -g"]
         },
         {
-          title: "Theme System Upgrade",
-          description: "Launch new theme system providing multiple beautiful UI themes and layout choices. Support deep customization and branding, making your application have unique visual experience.",
-          timeline: "2025 Q3",
+          title: "Scan to Authorize",
+          description: "Run lark-cli auth login, scan the QR code to authorize your Lark account, and select the permission scopes you need.",
+          timeline: "Step 2",
           status: "completed",
-          statusText: "Completed",
-          features: ["Multiple UI themes", "Dark mode support", "Component library expansion"]
+          statusText: "Scan to Login",
+          features: ["lark-cli auth login", "Select permission scopes", "OAuth secure authorization"]
         },
         {
-          title: "Third-party Service Expansion",
-          description: "Greatly expand third-party service support, covering more cloud service providers and SaaS tools. Through unified interface design, let you easily switch and integrate various service providers.",
-          timeline: "2025 Q4",
+          title: "Start Using",
+          description: "Operate Lark directly from the command line: check your calendar, send messages, create tasks, manage documents — everything at your fingertips.",
+          timeline: "Step 3",
+          status: "completed",
+          statusText: "Start Using",
+          features: ["lark-cli calendar +agenda", "lark-cli im +send", "lark-cli task +create"]
+        },
+        {
+          title: "AI Agent Integration",
+          description: "After installing AI Agent Skills, tools like Claude Code can automatically operate Lark, enabling truly AI-driven workflows.",
+          timeline: "Step 4",
           status: "in-progress",
-          statusText: "In Development",
-          features: ["More payment gateways", "Cloud storage services", "More SMS service providers"]
+          statusText: "Advanced Usage",
+          features: ["Claude Code integration", "Natural language Lark operations", "Automated workflows"]
         },
         {
-          title: "Blog/Documentation System",
-          description: "Built-in complete blog and documentation management system, supporting Markdown editing, SEO optimization, comment system and other functions. Let your SaaS product have complete content marketing capabilities.",
-          timeline: "2026 Q1",
+          title: "Explore More Scenarios",
+          description: "Meeting summaries, Wiki optimization, scheduled messages, batch operations... Lark CLI's capabilities go far beyond your imagination.",
+          timeline: "Keep Exploring",
           status: "planned",
-          statusText: "Planned",
-          features: ["Blog system", "Documentation system", "Knowledge base search"]
+          statusText: "Unlimited Possibilities",
+          features: ["Meeting summaries", "Wiki management", "Batch operations", "Custom workflows"]
         },
         {
-          title: "Video Tutorial System",
-          description: "Create complete video tutorial series, from basic usage to advanced customization, helping developers quickly master TinyShip's various functions and best practices.",
-          timeline: "2026 Q3",
+          title: "Community",
+          description: "Join the Lark CLI community, share use cases, participate in creator contests, and exchange best practices with fellow developers.",
+          timeline: "Community",
           status: "planned",
-          statusText: "Planned",
-          features: ["Getting started tutorials", "Advanced development", "Deployment guide", "Practical cases"]
-        },
-        {
-          title: "Industry Template Library",
-          description: "For different industries and application scenarios, provide ready-to-use project templates. Each template includes complete business logic, UI design and best practices, allowing you to quickly start projects. As an expansion pack for the basic version, it needs to be purchased separately, but basic version users enjoy significant discounts.",
-          timeline: "2026 Q4",
-          status: "planned",
-          statusText: "Planned",
-          features: ["SaaS application templates", "Software sales templates", "AI project templates", "E-commerce platform templates", "Enterprise website templates", "Exclusive discounts for basic version users"]
+          statusText: "Join Us",
+          features: ["Creator contests", "Use case sharing", "Best practices", "Community contributions"]
         }
       ],
-      footer: "Continuously updating, stay tuned for more features..."
+      footer: "More use cases and tips — follow our blog for updates..."
     },
     stats: {
-      title: "Trusted Choice",
+      title: "Lark CLI at a Glance",
       items: [
         {
-          value: "10000",
+          value: "5900",
           suffix: "+",
-          label: "Users Choice"
+          label: "GitHub Stars"
         },
         {
-          value: "2",
+          value: "11",
           suffix: "",
-          label: "Frontend Framework Support"
+          label: "Business Domains"
         },
         {
-          value: "50",
+          value: "200",
           suffix: "+",
-          label: "Built-in Feature Modules"
+          label: "Curated Commands"
         },
         {
-          value: "99",
-          suffix: "%",
-          label: "User Satisfaction"
+          value: "19",
+          suffix: "",
+          label: "AI Agent Skills"
         }
       ]
     },
     testimonials: {
-      title: "Real User Feedback",
+      title: "Lark CLI KOL Reviews",
       items: [
         {
-          quote: "The early bird price was so worth it! Complete source code and lifetime updates helped me quickly build my own SaaS project, paid back in a month.",
-          author: "Zhang Wei",
-          role: "Independent Developer"
+          quote: "Lark CLI is now open source! I used Claude Code to tackle several enterprise scenarios — absolutely amazing! From calendar management to group message automation, CLI's efficiency is beyond imagination.",
+          author: "Jiamu",
+          role: "Tech KOL"
         },
         {
-          quote: "Technical support is great, problems are solved quickly. Dual framework support allows the team to choose familiar tech stacks.",
-          author: "Li Xiaoming",
-          role: "Startup CTO"
+          quote: "I let AI directly operate my Lark, and it turned out to be more proficient than me. The Lark CLI + Claude Code combo is the strongest enterprise productivity tool I've ever seen.",
+          author: "Uncle Huang",
+          role: "Tech Creator"
         },
         {
-          quote: "International features are particularly useful, internationalization and payments are all configured, saving us a lot of development time.",
-          author: "Wang Fang",
-          role: "Product Manager"
+          quote: "Lark CLI going open source opens the door for all AI tools. This isn't just a command-line tool — it's the infrastructure for the AI Agent era.",
+          author: "Xiaohu",
+          role: "Tech Commentator"
         }
       ]
     },
+    domains: {
+      title: "Lark CLI Covers 11 Business Domains",
+      subtitle: "One CLI tool to manage all your Lark workflows — from messaging to meetings, from docs to databases.",
+      items: [
+        { icon: "MessageSquare", name: "Messenger", description: "Send messages, manage group chats, search conversations, download media" },
+        { icon: "FileText", name: "Cloud Docs", description: "Create, edit, search documents with Markdown support" },
+        { icon: "Database", name: "Base (Bitable)", description: "Manage tables, fields, records, views, dashboards, and automations" },
+        { icon: "Table2", name: "Sheets", description: "CRUD operations, data append, search, and export spreadsheets" },
+        { icon: "Calendar", name: "Calendar", description: "View agenda, create events, check availability, smart scheduling" },
+        { icon: "CheckSquare", name: "Tasks", description: "Create tasks, manage subtasks, set reminders, update status" },
+        { icon: "Mail", name: "Mail", description: "Browse, search, read, compose, and manage email drafts" },
+        { icon: "BookOpen", name: "Wiki", description: "Manage knowledge spaces, organize document hierarchy" },
+        { icon: "HardDrive", name: "Drive", description: "Upload/download files, manage permissions, handle comments" },
+        { icon: "Users", name: "Contacts", description: "Search users by name, email, or phone, retrieve profiles" },
+        { icon: "Video", name: "Meetings", description: "Search recordings, retrieve transcripts, meeting minutes and action items" }
+      ]
+    },
+    commandShowcase: {
+      title: "Three-Tier Command Architecture of Lark CLI",
+      subtitle: "From quick shortcuts to full API access — Lark CLI adapts to every complexity level.",
+      tiers: [
+        {
+          name: "Quick Commands",
+          badge: "+ prefix",
+          description: "User and AI Agent friendly, sensible defaults, formatted output",
+          commands: [
+            "lark-cli calendar +agenda",
+            "lark-cli im +send --chat-id \"oc_xxx\" --text \"Hello\"",
+            "lark-cli task +create --title \"Review PR\""
+          ]
+        },
+        {
+          name: "API Commands",
+          badge: "100+ endpoints",
+          description: "Auto-generated, curated commands mapped to platform API endpoints",
+          commands: [
+            "lark-cli calendar calendars list",
+            "lark-cli im messages list --params '{...}'",
+            "lark-cli docs documents create --body '{...}'"
+          ]
+        },
+        {
+          name: "Raw API Access",
+          badge: "2500+ APIs",
+          description: "Direct access to all Lark Open Platform APIs for full flexibility",
+          commands: [
+            "lark-cli api GET /open-apis/calendar/v4/calendars",
+            "lark-cli api POST /open-apis/im/v1/messages --body '{...}'"
+          ]
+        }
+      ]
+    },
+    useCases: {
+      title: "Real-World Use Cases of Lark CLI",
+      subtitle: "See how teams and individuals use Lark CLI + AI Agents to automate real business workflows.",
+      items: [
+        {
+          title: "Meeting Follow-up Automation",
+          description: "AI Agent extracts action items from meeting transcripts, auto-creates tasks, assigns owners, and schedules follow-up meetings — all through Lark CLI commands.",
+          command: "\"Extract action items from yesterday's product sync and create tasks for each owner\""
+        },
+        {
+          title: "Smart Multi-Timezone Scheduling",
+          description: "Agent analyzes all participants' calendars across time zones, finds optimal meeting windows, and sends calendar invites — saving hours of back-and-forth.",
+          command: "\"Find a time next week when the NYC, London, and Beijing teams are all available\""
+        },
+        {
+          title: "Meeting Time Analytics Dashboard",
+          description: "Auto-categorize two weeks of calendar events, populate a Bitable, and generate a dashboard showing time allocation across projects and meeting types.",
+          command: "\"Analyze my calendar for the past 2 weeks and build a time-tracking dashboard\""
+        },
+        {
+          title: "Intelligent Email Triage",
+          description: "Scan unread emails, prioritize by importance, push summaries of critical items to group chat, auto-archive low-priority messages, and draft responses.",
+          command: "\"Review my unread emails, summarize important ones in the project group, draft replies\""
+        }
+      ]
+    },
+    faq: {
+      title: "Frequently Asked Questions about Lark CLI",
+      items: [
+        {
+          question: "Is Lark CLI free to use?",
+          answer: "Yes. Lark CLI is fully open-source under the MIT license. You can install it with npm and start using it for free. No registration or approval is needed."
+        },
+        {
+          question: "What AI tools does Lark CLI support?",
+          answer: "Lark CLI natively supports Claude Code, Cursor, Qwen Code, Kimi Code, Trae, and other mainstream AI coding tools through 19 built-in AI Agent Skills. AI Agents can operate Lark with zero additional configuration."
+        },
+        {
+          question: "Is my data safe when using Lark CLI with AI Agents?",
+          answer: "Lark CLI implements multiple security layers: input injection protection, terminal output sanitization, and OS-native keychain credential storage. However, AI Agents execute with your authenticated identity, so always review authorized scopes carefully."
+        },
+        {
+          question: "How long does it take to set up Lark CLI?",
+          answer: "About 3 minutes. Run npm install, scan the QR code to authorize, and execute your first command. The install-to-first-API-call flow is designed for minimal friction."
+        },
+        {
+          question: "Does Lark CLI work with the international version of Lark?",
+          answer: "Yes. Lark CLI supports both the international Lark platform and the China-based Feishu platform. The CLI automatically handles API endpoint differences."
+        },
+        {
+          question: "Can I use Lark CLI without AI tools?",
+          answer: "Absolutely. While the 19 AI Agent Skills are a highlight, Lark CLI works perfectly as a standalone command-line tool. The 200+ curated commands are designed for both human and AI agent use."
+        }
+      ]
+    },
+    community: {
+      title: "Lark CLI Community",
+      subtitle: "Real use cases and in-depth reviews from community members and KOLs",
+      contest: {
+        title: "Lark CLI Creator Contest",
+        description: "Join the community, share your Lark CLI use cases, and win rewards.",
+        cta: "Learn More"
+      },
+      cases: {
+        title: "Community Cases",
+        items: [
+          {
+            title: "CLI Beginner's Guide",
+            description: "Everyday analogies to explain CLI concepts, helping non-programmers understand the difference between command line and GUI.",
+            tag: "Beginner"
+          },
+          {
+            title: "Lark CLI Feature Overview",
+            description: "Complete user manual covering installation, initialization, user login, identity switching, and all core features.",
+            tag: "Features"
+          },
+          {
+            title: "Organize Lark Wiki with CLI",
+            description: "Knowledge base reorganization plan: analyzed 31 child nodes and proposed consolidating into 7-10 categories.",
+            tag: "Wiki"
+          },
+          {
+            title: "Auto-Generate In-Depth Articles",
+            description: "AI-driven research generating deep content covering 16 AI Builders' backgrounds, insights, and key perspectives.",
+            tag: "Content"
+          },
+          {
+            title: "Auto-Generate Event Plans",
+            description: "Complete event planning generated from meeting minutes, covering 3-day schedules and presentation segments.",
+            tag: "Automation"
+          },
+          {
+            title: "Group Chat Content Curation",
+            description: "Automatically curate and organize valuable content from group chats into structured knowledge bases.",
+            tag: "Efficiency"
+          }
+        ]
+      },
+      kols: {
+        title: "KOL In-Depth Reviews",
+        items: [
+          {
+            quote: "Lark CLI is now open source! I used Claude Code to tackle several enterprise scenarios — absolutely amazing! From calendar management to group message automation, CLI's efficiency is beyond imagination.",
+            author: "Jiamu",
+            role: "Tech KOL"
+          },
+          {
+            quote: "I let AI directly operate my Lark, and it turned out to be more proficient than me. The Lark CLI + Claude Code combo is the strongest enterprise productivity tool I've ever seen.",
+            author: "Uncle Huang",
+            role: "Tech Creator"
+          },
+          {
+            quote: "Lark CLI going open source opens the door for all AI tools. This isn't just a command-line tool — it's the infrastructure for the AI Agent era.",
+            author: "Xiaohu",
+            role: "Tech Commentator"
+          },
+          {
+            quote: "A comprehensive guide explaining what Lark and WeCom CLI are, how to use them, with 8 practical use cases from beginner to advanced.",
+            author: "Lengyi",
+            role: "Tech Blogger"
+          }
+        ]
+      }
+    },
     finalCta: {
-      title: "Ready to start your voyage?",
-      subtitle: "Join thousands of users and use TinyShip to quickly build your next business project. Though it's a small boat, it's enough to take you to the shore of success. Early bird pricing only for first 100 users!",
+      subtitle: "One command to install, three minutes to get started. Let AI become your Lark super assistant and double your productivity.",
       buttons: {
-        purchase: "Buy Now ¥299",
-        demo: "View Demo"
+        purchase: "npm install -g @larksuite/cli",
+        demo: "View on GitHub"
       }
     },
     footer: {
-      copyright: "© {year} TinyShip. All rights reserved.",
-      description: "TinyShip"
+      copyright: "© {year} Lark CLI. All rights reserved.",
+      description: "Lark CLI - Official Command-Line Tool for Lark/Feishu",
+      disclaimer: "This website is a third-party community project and is not affiliated with Lark (Feishu) or ByteDance. Lark, Feishu, and related logos are trademarks of ByteDance.",
+      links: {
+        officialDocs: "Official Docs",
+        github: "GitHub",
+        community: "WaytoAGI Community"
+      }
     },
     common: {
       demoInterface: "Feature Demo Interface",
@@ -1460,7 +1642,7 @@ export const en: Locale = {
   },
   ai: {
     metadata: {
-      title: "TinyShip - AI Assistant",
+      title: "Lark CLI - AI Assistant",
       description: "Interact with powerful AI models including GPT-4, Qwen, and DeepSeek. Get AI assistance for coding, writing, and problem-solving.",
       keywords: "AI, assistant, chatbot, GPT-4, artificial intelligence, machine learning, conversation"
     },
@@ -1519,7 +1701,7 @@ export const en: Locale = {
     },
     image: {
       metadata: {
-        title: "TinyShip - AI Image Generation",
+        title: "Lark CLI - AI Image Generation",
         description: "Generate stunning images using AI. Powered by Qwen-Image, fal.ai Flux, OpenAI DALL-E, and Google Gemini.",
         keywords: "AI, image generation, DALL-E, Flux, Qwen, Gemini, text to image, art, creative"
       },
@@ -1597,7 +1779,7 @@ export const en: Locale = {
     },
     video: {
       metadata: {
-        title: "TinyShip - AI Video Generation",
+        title: "Lark CLI - AI Video Generation",
         description: "Generate stunning videos using AI. Powered by fal.ai, Volcengine Seedance, and Aliyun Wanxiang.",
         keywords: "AI, video generation, text to video, Seedance, Wanxiang, Luma, creative"
       },
@@ -1689,7 +1871,7 @@ export const en: Locale = {
   },
   premiumFeatures: {
     metadata: {
-      title: "TinyShip - Premium Features",
+      title: "Lark CLI - Premium Features",
       description: "Explore all the premium features available with your subscription. Access advanced tools, AI assistance, and enhanced functionality.",
       keywords: "premium, features, advanced, tools, subscription, benefits, enhanced"
     },
@@ -1820,7 +2002,9 @@ export const en: Locale = {
       upload: "Upload",
       demos: "Demos",
       demosDescription: "Explore example features",
-      blog: "Blog"
+      blog: "Blog",
+      useCases: "Use Cases",
+      quickstart: "Quick Start"
     },
     demos: {
       ai: {
@@ -1868,7 +2052,7 @@ export const en: Locale = {
   },
   docs: {
     home: {
-      title: "TinyShip Docs",
+      title: "Lark CLI Docs",
       subtitle: "Built with Fumadocs",
       description: "A static site project based on Fumadocs, perfect for documentation, blogs, and static pages.",
       cta: {
@@ -1882,7 +2066,7 @@ export const en: Locale = {
     },
     blog: {
       title: "Blog",
-      description: "Latest articles and updates from the TinyShip team",
+      description: "Latest articles and updates from the Lark CLI team",
       allPosts: "All Posts",
       previousPage: "← Previous",
       nextPage: "Next →",
@@ -1924,12 +2108,12 @@ export const en: Locale = {
   },
   blog: {
     metadata: {
-      title: "TinyShip - Blog",
-      description: "Read the latest articles and updates from the TinyShip team.",
-      keywords: "blog, articles, updates, TinyShip, SaaS"
+      title: "Lark CLI Blog - Tutorials, Use Cases & Best Practices",
+      description: "Lark CLI tutorials, use case sharing, and best practices. Learn how to efficiently operate Lark with the command line and AI Agents.",
+      keywords: "Lark CLI tutorial, Lark CLI usage, Lark automation, AI Agent Lark, Claude Code Lark"
     },
     title: "Blog",
-    subtitle: "Latest articles and updates",
+    subtitle: "Tutorials, use cases & best practices",
     readMore: "Read More",
     publishedOn: "Published on",
     by: "by",
