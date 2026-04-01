@@ -2,37 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://feishucli.net/zh-CN</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN"/>
+    <loc>https://feishucli.net/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://feishucli.net/en</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://feishucli.net/zh-CN/pricing</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://feishucli.net/en/pricing</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://feishucli.net/zh-CN/blog</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://feishucli.net/en/blog</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>
