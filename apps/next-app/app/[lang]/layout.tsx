@@ -10,6 +10,9 @@ import { ThemeProvider } from "@/hooks/use-theme";
 import { ThemeScript } from "@/components/theme-script";
 
 
+import Script from "next/script";
+
+
 export async function generateViewport({ params }: { params: Promise<{ lang: string }> }): Promise<Viewport> {
   return {
     themeColor: '#3b82f6',
@@ -100,6 +103,18 @@ export default function RootLayout({
     <html lang={lang} suppressHydrationWarning>
       <head>
         <ThemeScript />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y9NWRGSVMM"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Y9NWRGSVMM');
+          `}
+        </Script>
       </head>
       <body className={`${GeistSans.className} antialiased`}>
         <ThemeProvider>
