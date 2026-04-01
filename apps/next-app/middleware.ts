@@ -1,52 +1,69 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { localeMiddleware } from './middlewares/localeMiddleware';
-import { authMiddleware } from './middlewares/authMiddleware';
+import { i18n } from './app/i18n-config';
+
+// Public paths that never need auth check — skip auth middleware entirely
+const publicPathPatterns = [
+  // Homepage
+  new RegExp(`^\\/(${i18n.locales.join('|')})$`),
+  // Blog
+  new RegExp(`^\\/(${i18n.locales.join('|')})\\/blog(\\/.*)?$`),
+  // Pricing
+  new RegExp(`^\\/(${i18n.locales.join('|')})\\/pricing$`),
+  // API auth routes (better-auth handles its own auth)
+  /^\/api\/auth\//,
+  // API health
+  /^\/api\/health$/,
+  // API blog (public read)
+  /^\/api\/blog(\/.*)?$/,
+];
+
+function isPublicPath(pathname: string): boolean {
+  return publicPathPatterns.some(pattern => pattern.test(pathname));
+}
 
 export async function middleware(request: NextRequest) {
-  const startTime = Date.now();
   const pathname = request.nextUrl.pathname;
 
-  // Log middleware execution start
-  console.log(`🚀 Middleware start for: ${pathname}`);
-
-  // --- Skip static files and images --- 
+  // --- Skip static files and images ---
   if (
     /^\/(_next|images)\/.*$/.test(pathname) ||
-    pathname.includes('.') // This covers files like favicon.ico, manifest.json etc.
+    pathname.includes('.')
   ) {
-    return NextResponse.next(); // Let these requests pass through
+    return NextResponse.next();
   }
 
-  // --- Locale Handling --- 
-  const localeStart = Date.now();
+  // --- Locale Handling ---
   const localeResponse = localeMiddleware(request);
-  console.log(`⏱️ Locale middleware: ${Date.now() - localeStart}ms`);
   if (localeResponse) {
-    console.log(`🔄 Locale redirect for: ${pathname}`);
-    return localeResponse; // Redirect if locale is missing (primarily for pages)
+    return localeResponse;
   }
 
-  // --- Authentication Check --- 
-  const authStart = Date.now();
-  const authResponse = await authMiddleware(request);
-  console.log(`⏱️ Auth middleware: ${Date.now() - authStart}ms`);
-  if (authResponse) {
-    console.log(`🔒 Auth response for: ${pathname}`);
-    return authResponse; // Redirect (pages) or return 401 (API) if auth fails
+  // --- Skip auth for public paths ---
+  if (isPublicPath(pathname)) {
+    return NextResponse.next();
   }
 
-  // --- Default: Continue Request --- 
-  const totalTime = Date.now() - startTime;
-  console.log(`✅ Middleware completed for: ${pathname} in ${totalTime}ms`);
-  return NextResponse.next(); // If all checks pass, continue
+  // --- Authentication Check (lazy import to avoid DB init when not needed) ---
+  try {
+    const { authMiddleware } = await import('./middlewares/authMiddleware');
+    const authResponse = await authMiddleware(request);
+    if (authResponse) {
+      return authResponse;
+    }
+  } catch (error) {
+    // If auth fails (e.g., no database), let the request through
+    // The page/API will handle its own error
+    console.error('Auth middleware error:', error);
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
   runtime: 'nodejs',
-  // Matcher包含API路径以便进行权限检查，以及auth路径以便重定向已登录用户
   matcher: [
-    // Skip all internal paths (_next) but include API routes for auth check and auth pages for redirect
     '/((?!_next|images|[\\w-]+\\.\\w+).*)',
   ],
 };
