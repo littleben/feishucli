@@ -14,6 +14,8 @@ const publicPathPatterns = [
   // Terms & Privacy
   new RegExp(`^\\/(${i18n.locales.join('|')})\\/terms$`),
   new RegExp(`^\\/(${i18n.locales.join('|')})\\/privacy$`),
+  // Changelog
+  new RegExp(`^\\/(${i18n.locales.join('|')})\\/changelog$`),
   // API auth routes (better-auth handles its own auth)
   /^\/api\/auth\//,
   // API health
