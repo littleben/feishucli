@@ -64,6 +64,21 @@ const appImageMap = [
   "/images/features/ai-doc-3.png"
 ];
 const roadmapIconMap = [Check, Settings, BookOpen, Palette, Play, FileText];
+// KOL author → blog slug mapping
+const kolBlogMap: Record<string, string> = {
+  "甲木": "jiamu-claude-code-feishu-cli",
+  "黄叔": "huangshu-ai-control-feishu",
+  "小互": "xiaohu-smart-task-assistant",
+  "冷逸": "lengyi-feishu-wecom-cli-8-plays",
+};
+
+// Community case → blog slug mapping (by title keyword)
+const caseBlogMap: Record<string, string> = {
+  "零基础入门": "cli-beginner-guide",
+  "画板功能全景图": "cli-beginner-guide",
+  "整理知识库": "huangshu-ai-control-feishu",
+};
+
 const domainIconMap: Record<string, any> = {
   MessageSquare, FileText, Database, Table2, Calendar, CheckSquare, Mail, BookOpen, HardDrive, Users, Video
 };
@@ -750,22 +765,32 @@ export default function Home() {
             <div className="max-w-5xl mx-auto mb-16">
               <h3 className="text-2xl font-bold text-foreground mb-8 text-center">{t.home.community.cases.title}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {t.home.community.cases.items.map((caseItem: any, index: number) => (
-                  <motion.div
-                    key={index}
-                    className="p-5 rounded-xl bg-card border border-border hover:shadow-md transition-all duration-300"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">{caseItem.tag}</span>
-                    </div>
-                    <h4 className="font-semibold text-foreground mb-2 text-sm">{caseItem.title}</h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{caseItem.description}</p>
-                  </motion.div>
-                ))}
+                {t.home.community.cases.items.map((caseItem: any, index: number) => {
+                  const caseSlug = Object.entries(caseBlogMap).find(([key]) => caseItem.title.includes(key))?.[1];
+                  const caseCard = (
+                    <motion.div
+                      key={index}
+                      className={`p-5 rounded-xl bg-card border border-border hover:shadow-md transition-all duration-300 ${caseSlug ? 'cursor-pointer hover:border-primary/30' : ''}`}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">{caseItem.tag}</span>
+                      </div>
+                      <h4 className="font-semibold text-foreground mb-2 text-sm">{caseItem.title}</h4>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{caseItem.description}</p>
+                    </motion.div>
+                  );
+                  return caseSlug ? (
+                    <Link key={index} href={`/${currentLocale}/blog/${caseSlug}`}>
+                      {caseCard}
+                    </Link>
+                  ) : (
+                    caseCard
+                  );
+                })}
               </div>
             </div>
 
@@ -773,45 +798,65 @@ export default function Home() {
             <div className="max-w-5xl mx-auto">
               <h3 className="text-2xl font-bold text-foreground mb-8 text-center">{t.home.community.kols.title}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {t.home.community.kols.items.map((kol: any, index: number) => (
-                  <motion.div
-                    key={index}
-                    className="bg-card p-6 rounded-2xl border border-border hover:shadow-lg transition-all duration-300"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="flex mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 text-chart-5 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground mb-4 leading-relaxed text-sm">"{kol.quote}"</p>
-                    <div className="flex items-center">
-                      <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold mr-3 ${
-                          index === 0 ? 'bg-chart-1' :
-                          index === 1 ? 'bg-chart-3' :
-                          index === 2 ? 'bg-chart-5' :
-                          'bg-chart-2'
-                        }`}
-                      >
-                        {kol.author[0]}
+                {t.home.community.kols.items.map((kol: any, index: number) => {
+                  const slug = kolBlogMap[kol.author];
+                  const card = (
+                    <motion.div
+                      key={index}
+                      className={`bg-card p-6 rounded-2xl border border-border hover:shadow-lg transition-all duration-300 ${slug ? 'cursor-pointer hover:border-primary/30' : ''}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex mb-4">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-4 w-4 text-chart-5 fill-current" />
+                        ))}
                       </div>
-                      <div>
-                        <div className="font-semibold text-foreground text-sm">{kol.author}</div>
-                        <div className="text-muted-foreground text-xs">{kol.role}</div>
+                      <p className="text-muted-foreground mb-4 leading-relaxed text-sm">"{kol.quote}"</p>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <div
+                            className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold mr-3 ${
+                              index === 0 ? 'bg-chart-1' :
+                              index === 1 ? 'bg-chart-3' :
+                              index === 2 ? 'bg-chart-5' :
+                              'bg-chart-2'
+                            }`}
+                          >
+                            {kol.author[0]}
+                          </div>
+                          <div>
+                            <div className="font-semibold text-foreground text-sm">{kol.author}</div>
+                            <div className="text-muted-foreground text-xs">{kol.role}</div>
+                          </div>
+                        </div>
+                        {slug && (
+                          <span className="text-xs text-primary font-medium">阅读全文 →</span>
+                        )}
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
+                    </motion.div>
+                  );
+                  return slug ? (
+                    <Link key={index} href={`/${currentLocale}/blog/${slug}`}>
+                      {card}
+                    </Link>
+                  ) : (
+                    card
+                  );
+                })}
+              </div>
+              <div className="mt-8 text-center">
+                <Link href={`/${currentLocale}/blog`}>
+                  <Button variant="outline" className="rounded-full">
+                    查看全部文章 →
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </section>
-
-        {/* FAQ Section */}
         <section className="py-24 bg-background">
           <div className="container px-4 md:px-6">
             <motion.div
@@ -900,28 +945,49 @@ export default function Home() {
         {/* Footer */}
         <footer className="py-12 bg-muted text-muted-foreground">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col md:flex-row justify-between items-center">
+            {/* Main footer links - prominent */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+              <div>
+                <h3 className="font-semibold text-foreground mb-3">产品</h3>
+                <ul className="space-y-2">
+                  <li><a href="https://github.com/larksuite/cli" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-foreground transition-colors">GitHub</a></li>
+                  <li><Link href={`/${currentLocale}/changelog`} className="text-sm hover:text-foreground transition-colors">更新日志</Link></li>
+                  <li><a href="https://www.feishu.cn/content/article/7623291503305083853" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-foreground transition-colors">{t.home.footer.links.officialDocs}</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-3">内容</h3>
+                <ul className="space-y-2">
+                  <li><Link href={`/${currentLocale}/blog`} className="text-sm hover:text-foreground transition-colors">Blog</Link></li>
+                  <li><Link href={`/${currentLocale}/blog/cli-beginner-guide`} className="text-sm hover:text-foreground transition-colors">CLI 入门指南</Link></li>
+                  <li><Link href={`/${currentLocale}/blog/feishu-cli-creator-contest`} className="text-sm hover:text-foreground transition-colors">创作者大赛</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-3">社区</h3>
+                <ul className="space-y-2">
+                  <li><a href="https://waytoagi.feishu.cn/wiki/Zsp2wxsKEiRTEjkajJFc7FBGnh3" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-foreground transition-colors">{t.home.footer.links.community}</a></li>
+                  <li><Link href={`/${currentLocale}/blog/jiamu-claude-code-feishu-cli`} className="text-sm hover:text-foreground transition-colors">甲木：企业级场景实战</Link></li>
+                  <li><Link href={`/${currentLocale}/blog/lengyi-feishu-wecom-cli-8-plays`} className="text-sm hover:text-foreground transition-colors">冷逸：8 大玩法</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-foreground mb-3">关于</h3>
+                <ul className="space-y-2">
+                  <li><Link href={`/${currentLocale}/terms`} className="text-sm hover:text-foreground transition-colors">Terms of Service</Link></li>
+                  <li><Link href={`/${currentLocale}/privacy`} className="text-sm hover:text-foreground transition-colors">Privacy Policy</Link></li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom bar */}
+            <div className="pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center">
               <div className="flex items-center mb-4 md:mb-0">
                 <Logo size="md" />
                 <span className="ml-3 text-sm text-muted-foreground">{t.home.footer.description}</span>
               </div>
-              <div className="flex items-center space-x-6">
-                <a href="https://www.feishu.cn/content/article/7623291503305083853" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  {t.home.footer.links.officialDocs}
-                </a>
-                <a href="https://github.com/larksuite/cli" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  {t.home.footer.links.github}
-                </a>
-                <a href="https://waytoagi.feishu.cn/wiki/Zsp2wxsKEiRTEjkajJFc7FBGnh3" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  {t.home.footer.links.community}
-                </a>
-              </div>
-            </div>
-            <div className="mt-6 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground/60">
-              <span>{t.home.footer.copyright.replace('{year}', new Date().getFullYear().toString())}</span>
-              <div className="flex items-center space-x-4 mt-2 md:mt-0">
-                <Link href={`/${currentLocale}/terms`} className="hover:text-foreground transition-colors">Terms of Service</Link>
-                <Link href={`/${currentLocale}/privacy`} className="hover:text-foreground transition-colors">Privacy Policy</Link>
+              <div className="flex items-center space-x-4 text-xs text-muted-foreground/60">
+                <span>{t.home.footer.copyright.replace('{year}', new Date().getFullYear().toString())}</span>
                 <span>{t.home.footer.disclaimer}</span>
               </div>
             </div>

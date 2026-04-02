@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
   <url>
     <loc>https://feishucli.net/</loc>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/"/>
@@ -14,5 +15,81 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://feishucli.net/zh-CN/blog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/en/blog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://feishucli.net/zh-CN/blog/jiamu-claude-code-feishu-cli</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/zh-CN/blog/lengyi-feishu-wecom-cli-8-plays</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/zh-CN/blog/huangshu-ai-control-feishu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/zh-CN/blog/xiaohu-smart-task-assistant</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/zh-CN/blog/cli-beginner-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/zh-CN/blog/feishu-cli-creator-contest</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Changelog -->
+  <url>
+    <loc>https://feishucli.net/zh-CN/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/changelog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/en/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN/changelog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/changelog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://feishucli.net/zh-CN/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/zh-CN/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

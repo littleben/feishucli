@@ -70,6 +70,12 @@ export default function Header({ className }: HeaderProps) {
             <a href="#quickstart" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t.header.navigation.quickstart}
             </a>
+            <Link href={`/${currentLocale}/blog`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Blog
+            </Link>
+            <Link href={`/${currentLocale}/changelog`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Changelog
+            </Link>
           </nav>
 
           {/* User menu or Auth buttons */}
@@ -137,6 +143,12 @@ export default function Header({ className }: HeaderProps) {
             <a href="#quickstart" className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
               {t.header.navigation.quickstart}
             </a>
+            <Link href={`/${currentLocale}/blog`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
+              Blog
+            </Link>
+            <Link href={`/${currentLocale}/changelog`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
+              Changelog
+            </Link>
             <div className="border-t border-border my-2" />
             {/* Mobile Theme and Language Controls */}
             <div className="flex items-center justify-between px-3 py-2">
