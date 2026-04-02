@@ -1,165 +1,75 @@
 import Link from "next/link";
-
-import { db, blogPost, user } from "@libs/database";
-import { blogPostStatus } from "@libs/database/schema/blog-post";
-import { eq, desc, count } from "drizzle-orm";
-import { translations } from "@libs/i18n";
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const PAGE_SIZE = 12;
+import { blogPosts } from "./data";
 
 type Props = {
   params: Promise<{ lang: string }>;
-  searchParams: Promise<{ page?: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang } = await params;
-  const t = translations[lang as keyof typeof translations];
-
   return {
-    title: t.blog.metadata.title,
-    description: t.blog.metadata.description,
-    keywords: t.blog.metadata.keywords,
+    title: "Blog - Feishu CLI",
+    description: "Articles, tutorials, and community stories about Feishu CLI (Lark CLI)",
   };
 }
 
-export default async function BlogListPage({ params, searchParams }: Props) {
+const categoryLabels: Record<string, string> = {
+  review: "评测",
+  tutorial: "教程",
+  event: "活动",
+};
+
+const categoryColors: Record<string, string> = {
+  review: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400",
+  tutorial: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400",
+  event: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400",
+};
+
+export default async function BlogListPage({ params }: Props) {
   const { lang } = await params;
-  const { page: pageParam } = await searchParams;
-  const t = translations[lang as keyof typeof translations];
-
-  const page = Math.max(1, parseInt(pageParam || "1", 10));
-  const offset = (page - 1) * PAGE_SIZE;
-
-  const totalResult = await db
-    .select({ count: count() })
-    .from(blogPost)
-    .where(eq(blogPost.status, blogPostStatus.PUBLISHED));
-
-  const total = totalResult[0]?.count ?? 0;
-  const totalPages = Math.ceil(total / PAGE_SIZE);
-
-  const posts = await db
-    .select({
-      id: blogPost.id,
-      title: blogPost.title,
-      slug: blogPost.slug,
-      excerpt: blogPost.excerpt,
-      coverImage: blogPost.coverImage,
-      publishedAt: blogPost.publishedAt,
-      authorName: user.name,
-    })
-    .from(blogPost)
-    .leftJoin(user, eq(blogPost.authorId, user.id))
-    .where(eq(blogPost.status, blogPostStatus.PUBLISHED))
-    .orderBy(desc(blogPost.publishedAt))
-    .limit(PAGE_SIZE)
-    .offset(offset);
 
   return (
     <div className="min-h-screen bg-background">
       <section className="py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-12">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              {t.blog.title}
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="mb-12">
+            <h1 className="text-3xl font-bold tracking-tight text-foreground">
+              Blog
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              {t.blog.subtitle}
+            <p className="mt-2 text-muted-foreground">
+              评测、教程、案例与社区动态
             </p>
           </div>
 
-          {posts.length === 0 ? (
-            <p className="text-center text-muted-foreground py-12">
-              {t.blog.noPosts}
-            </p>
-          ) : (
-            <>
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {posts.map((post) => (
-                  <Link
-                    key={post.id}
-                    href={`/${lang}/blog/${post.slug}`}
-                    className="group rounded-xl border border-border bg-card p-0 overflow-hidden transition-all hover:shadow-lg hover:border-primary/20"
-                  >
-                    {post.coverImage ? (
-                      <div className="aspect-video w-full overflow-hidden bg-muted">
-                        <img
-                          src={post.coverImage}
-                          alt={post.title}
-                          className="h-full w-full object-cover transition-transform group-hover:scale-105"
-                        />
-                      </div>
-                    ) : (
-                      <div className="aspect-video w-full bg-muted" />
-                    )}
-                    <div className="p-4">
-                      <h2 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </h2>
-                      {post.excerpt && (
-                        <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                          {post.excerpt}
-                        </p>
-                      )}
-                      <div className="mt-3 flex items-center gap-2 text-xs text-muted-foreground">
-                        {post.authorName && (
-                          <span>
-                            {t.blog.by} {post.authorName}
-                          </span>
-                        )}
-                        {post.publishedAt && (
-                          <span>
-                            {t.blog.publishedOn}{" "}
-                            {new Date(post.publishedAt).toLocaleDateString(lang === "zh-CN" ? "zh-CN" : "en-US")}
-                          </span>
-                        )}
-                      </div>
+          <div className="space-y-6">
+            {blogPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/${lang}/blog/${post.slug}`}
+                className="group block rounded-lg border border-border bg-card p-6 transition-all hover:shadow-md hover:border-primary/20"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${categoryColors[post.category]}`}>
+                        {categoryLabels[post.category]}
+                      </span>
+                      <span className="text-xs text-muted-foreground">{post.date}</span>
                     </div>
-                  </Link>
-                ))}
-              </div>
-
-              {totalPages > 1 && (
-                <div className="mt-12 flex items-center justify-center gap-4">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    asChild
-                    className={page <= 1 ? "pointer-events-none opacity-50" : ""}
-                  >
-                    <Link
-                      href={page <= 1 ? "#" : `/${lang}/blog?page=${page - 1}`}
-                      className="flex items-center gap-1"
-                    >
-                      <ChevronLeft className="h-4 w-4" />
-                      {t.actions.previous}
-                    </Link>
-                  </Button>
-                  <span className="text-sm text-muted-foreground">
-                    {page} / {totalPages}
-                  </span>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    asChild
-                    className={page >= totalPages ? "pointer-events-none opacity-50" : ""}
-                  >
-                    <Link
-                      href={page >= totalPages ? "#" : `/${lang}/blog?page=${page + 1}`}
-                      className="flex items-center gap-1"
-                    >
-                      {t.actions.next}
-                      <ChevronRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
+                    <h2 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
+                      {post.title}
+                    </h2>
+                    <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                    <span className="mt-2 inline-block text-xs text-muted-foreground/60">
+                      {post.author}
+                    </span>
+                  </div>
                 </div>
-              )}
-            </>
-          )}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>

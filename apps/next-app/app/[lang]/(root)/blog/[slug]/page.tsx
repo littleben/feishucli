@@ -1,121 +1,96 @@
-import Link from "next/link";
-
 import { notFound } from "next/navigation";
-import { db, blogPost, user } from "@libs/database";
-import { blogPostStatus } from "@libs/database/schema/blog-post";
-import { eq, and } from "drizzle-orm";
-import { translations } from "@libs/i18n";
+import Link from "next/link";
 import type { Metadata } from "next";
-import ReactMarkdown from "react-markdown";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, ExternalLink } from "lucide-react";
+import { blogPosts } from "../data";
+
+import JiamuArticle from "../posts/jiamu";
+import LengyiArticle from "../posts/lengyi";
+import HuangshuArticle from "../posts/huangshu";
+import XiaohuArticle from "../posts/xiaohu";
+import CliBeginnerGuide from "../posts/cli-beginner-guide";
+import FeishuCliCreatorContest from "../posts/feishu-cli-creator-contest";
+
+const contentMap: Record<string, React.ComponentType> = {
+  "jiamu-claude-code-feishu-cli": JiamuArticle,
+  "lengyi-feishu-wecom-cli-8-plays": LengyiArticle,
+  "huangshu-ai-control-feishu": HuangshuArticle,
+  "xiaohu-smart-task-assistant": XiaohuArticle,
+  "cli-beginner-guide": CliBeginnerGuide,
+  "feishu-cli-creator-contest": FeishuCliCreatorContest,
+};
 
 type Props = {
   params: Promise<{ lang: string; slug: string }>;
 };
 
+export async function generateStaticParams() {
+  return blogPosts.flatMap((post) => [
+    { lang: "zh-CN", slug: post.slug },
+    { lang: "en", slug: post.slug },
+  ]);
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { lang, slug } = await params;
-  const t = translations[lang as keyof typeof translations];
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
 
-  const [post] = await db
-    .select({
-      title: blogPost.title,
-      excerpt: blogPost.excerpt,
-    })
-    .from(blogPost)
-    .where(and(eq(blogPost.slug, slug), eq(blogPost.status, blogPostStatus.PUBLISHED)))
-    .limit(1);
-
-  if (!post) {
-    return {
-      title: t.blog.title,
-    };
-  }
+  if (!post) return { title: "Not Found" };
 
   return {
-    title: `${post.title} - ${t.blog.title}`,
-    description: post.excerpt || t.blog.metadata.description,
-    keywords: t.blog.metadata.keywords,
+    title: `${post.title} - Feishu CLI Blog`,
+    description: post.excerpt,
   };
 }
 
-export default async function BlogDetailPage({ params }: Props) {
+export default async function BlogPostPage({ params }: Props) {
   const { lang, slug } = await params;
-  const t = translations[lang as keyof typeof translations];
+  const post = blogPosts.find((p) => p.slug === slug);
 
-  const [post] = await db
-    .select({
-      id: blogPost.id,
-      title: blogPost.title,
-      slug: blogPost.slug,
-      content: blogPost.content,
-      excerpt: blogPost.excerpt,
-      coverImage: blogPost.coverImage,
-      publishedAt: blogPost.publishedAt,
-      authorName: user.name,
-    })
-    .from(blogPost)
-    .leftJoin(user, eq(blogPost.authorId, user.id))
-    .where(and(eq(blogPost.slug, slug), eq(blogPost.status, blogPostStatus.PUBLISHED)))
-    .limit(1);
+  if (!post) notFound();
 
-  if (!post) {
-    notFound();
-  }
+  const Content = contentMap[slug];
+  if (!Content) notFound();
 
   return (
     <div className="min-h-screen bg-background">
-      <article className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
+      <div className="mx-auto max-w-3xl px-6 py-16">
         <Link
           href={`/${lang}/blog`}
-          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors"
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
         >
-          <ChevronLeft className="h-4 w-4" />
-          {t.blog.backToBlog}
+          <ChevronLeft className="size-4" />
+          返回文章列表
         </Link>
 
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-            {post.title}
-          </h1>
-          <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-            {post.authorName && (
-              <span>
-                {t.blog.by} {post.authorName}
-              </span>
-            )}
-            {post.publishedAt && (
-              <span>
-                {t.blog.publishedOn}{" "}
-                {new Date(post.publishedAt).toLocaleDateString(lang === "zh-CN" ? "zh-CN" : "en-US")}
-              </span>
-            )}
-          </div>
-          {post.coverImage && (
-            <div className="mt-6 aspect-video w-full overflow-hidden rounded-lg bg-muted">
-              <img
-                src={post.coverImage}
-                alt={post.title}
-                className="h-full w-full object-cover"
-              />
+        <article>
+          <header className="mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold leading-tight">{post.title}</h1>
+            <div className="flex items-center gap-3 mt-3 text-sm text-muted-foreground">
+              <span>{post.author}</span>
+              <span>·</span>
+              <time>{post.date}</time>
+              {post.originalUrl && (
+                <>
+                  <span>·</span>
+                  <a
+                    href={post.originalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
+                  >
+                    原文 <ExternalLink className="size-3" />
+                  </a>
+                </>
+              )}
             </div>
-          )}
-        </header>
+          </header>
 
-        <div className="prose dark:prose-invert max-w-none">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
-        </div>
-
-        <footer className="mt-12 pt-8 border-t border-border">
-          <Link
-            href={`/${lang}/blog`}
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            {t.blog.backToBlog}
-          </Link>
-        </footer>
-      </article>
+          <div className="prose prose-neutral dark:prose-invert max-w-none">
+            <Content />
+          </div>
+        </article>
+      </div>
     </div>
   );
 }
