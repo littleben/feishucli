@@ -1,17 +1,8 @@
 export default function FeishuCliCreatorContest() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground">
-          飞书 CLI 创作者大赛：展示你的 AI 自动化实力
-        </h1>
-        <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-          <span>飞书 CLI 官方</span>
-          <span>2026-04-01</span>
-        </div>
-      </header>
-
       <div className="space-y-6">
+        <img src="/images/banner.png" alt="飞书 CLI 创作者大赛" className="w-full rounded-xl border border-border" />
+
         <p className="text-muted-foreground leading-relaxed">
           飞书 CLI 开源以来，社区涌现出大量创新用法。为了鼓励更多人参与探索和分享，我们正式启动飞书 CLI 创作者大赛。无论你是开发者还是普通用户，都有机会参与并赢取丰厚奖品。
         </p>
@@ -136,6 +127,5 @@ export default function FeishuCliCreatorContest() {
           </p>
         </div>
       </div>
-    </article>
   );
 }

@@ -1,17 +1,8 @@
 export default function JiamuArticle() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground">
-          飞书 CLI 开源了，我用 Claude Code 玩转几大企业级场景
-        </h1>
-        <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-          <span>甲木</span>
-          <span>2026-03-28</span>
-        </div>
-      </header>
-
       <div className="space-y-6">
+        <img src="/images/ai-doc-1.png" alt="飞书 CLI + Claude Code 企业级场景" className="w-full rounded-xl border border-border" />
+
         <h2 className="text-xl font-semibold mt-8 mb-3">CLI 到底是什么？为什么它很重要</h2>
         <p className="text-muted-foreground leading-relaxed">
           如果你不是程序员，听到 CLI（命令行界面）可能会觉得离自己很远。但换个方式理解：平时我们用飞书，是通过点击按钮、拖拽文件来完成操作的，这叫图形界面（GUI）。而 CLI 则是通过输入文字命令来完成同样的事情。
@@ -67,6 +58,7 @@ export default function JiamuArticle() {
         </p>
 
         <h2 className="text-xl font-semibold mt-8 mb-3">场景四：多维表格数据看板</h2>
+        <img src="/images/meeting-dashboard.png" alt="多维表格数据看板" className="w-full rounded-xl border border-border my-4" />
         <p className="text-muted-foreground leading-relaxed">
           最后一个场景围绕多维表格（Bitable）展开。我让 AI 从多份飞书云文档中提取关键数据，然后自动创建一个多维表格，将数据汇总成一个可视化的项目看板。
         </p>
@@ -97,6 +89,5 @@ export default function JiamuArticle() {
           </p>
         </div>
       </div>
-    </article>
   );
 }

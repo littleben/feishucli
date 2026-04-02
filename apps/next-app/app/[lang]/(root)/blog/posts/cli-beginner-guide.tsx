@@ -1,17 +1,8 @@
 export default function CliBeginnerGuide() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground">
-          飞书 CLI 入门指南：从零理解到全景掌握
-        </h1>
-        <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-          <span>飞书 CLI 社区</span>
-          <span>2026-03-30</span>
-        </div>
-      </header>
-
       <div className="space-y-6">
+        <img src="/images/install-demo.png" alt="飞书 CLI 安装与使用" className="w-full rounded-xl border border-border" />
+
         {/* Part 1 */}
         <div className="bg-muted/30 rounded-lg px-6 py-4 mb-6">
           <p className="text-sm font-medium text-foreground">第一部分</p>
@@ -207,6 +198,5 @@ export default function CliBeginnerGuide() {
           </p>
         </div>
       </div>
-    </article>
   );
 }

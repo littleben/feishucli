@@ -1,17 +1,8 @@
 export default function HuangshuArticle() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground">
-          我让 AI 直接操作我的飞书，结果它比我还熟练
-        </h1>
-        <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-          <span>黄叔</span>
-          <span>2026-03-29</span>
-        </div>
-      </header>
-
       <div className="space-y-6">
+        <img src="/images/ai-doc-3.png" alt="AI 操作飞书知识库" className="w-full rounded-xl border border-border" />
+
         <h2 className="text-xl font-semibold mt-8 mb-3">知识库教程重构：让 AI 帮你整理文档体系</h2>
         <p className="text-muted-foreground leading-relaxed">
           第一个动手尝试的场景是知识库教程的重构。团队的飞书知识库里积累了大量技术文档，但结构混乱、版本过旧、格式不统一。我让 Claude Code 通过飞书 CLI 读取了知识库中的文档目录，分析文档内容和结构关系，然后给出了一套重新组织的方案。
@@ -84,6 +75,5 @@ export default function HuangshuArticle() {
           </p>
         </div>
       </div>
-    </article>
   );
 }

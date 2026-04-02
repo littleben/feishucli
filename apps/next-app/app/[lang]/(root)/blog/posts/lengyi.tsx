@@ -1,17 +1,8 @@
 export default function LengyiArticle() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground">
-          一文说清楚飞书、企微 CLI 究竟是什么，怎么用？附 8 大玩法
-        </h1>
-        <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-          <span>冷逸（小栗子）</span>
-          <span>2026-03-31</span>
-        </div>
-      </header>
-
       <div className="space-y-6">
+        <img src="/images/overview.png" alt="飞书 CLI 功能全景" className="w-full rounded-xl border border-border" />
+
         <h2 className="text-xl font-semibold mt-8 mb-3">Agent Native 时代，软件的使用者变了</h2>
         <p className="text-muted-foreground leading-relaxed">
           过去我们谈论软件时，默认的使用者是人。界面设计、交互逻辑、按钮位置，一切都围绕着"人如何高效操作"展开。但进入 Agent Native 时代后，一个根本性的变化正在发生：软件的使用者不再只是人，还有 AI Agent。
@@ -29,6 +20,7 @@ export default function LengyiArticle() {
         </p>
 
         <h2 className="text-xl font-semibold mt-8 mb-3">八大实战玩法</h2>
+        <img src="/images/features/calendar-demo.png" alt="飞书 CLI 八大实战玩法" className="w-full rounded-xl border border-border my-4" />
 
         <h3 className="text-lg font-medium mt-4 mb-2">1. 每日日程简报</h3>
         <p className="text-muted-foreground leading-relaxed">
@@ -107,6 +99,5 @@ export default function LengyiArticle() {
           </p>
         </div>
       </div>
-    </article>
   );
 }

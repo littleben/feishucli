@@ -1,17 +1,8 @@
 export default function XiaohuArticle() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16 lg:px-8">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground">
-          飞书 CLI 直接开源，为所有 AI 打开了大门
-        </h1>
-        <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
-          <span>小互</span>
-          <span>2026-03-28</span>
-        </div>
-      </header>
-
       <div className="space-y-6">
+        <img src="/images/calendar-demo.png" alt="智能任务助手与日历管理" className="w-full rounded-xl border border-border" />
+
         <h2 className="text-xl font-semibold mt-8 mb-3">用 CLAUDE.md 打造智能任务助手</h2>
         <p className="text-muted-foreground leading-relaxed">
           我做的第一件事是在项目中配置 CLAUDE.md 文件，为 AI 定义了一套任务管理规则。这些规则告诉 AI 如何解析自然语言中的任务意图、如何确定优先级、以及如何与飞书任务系统交互。
@@ -88,6 +79,5 @@ export default function XiaohuArticle() {
           </p>
         </div>
       </div>
-    </article>
   );
 }
