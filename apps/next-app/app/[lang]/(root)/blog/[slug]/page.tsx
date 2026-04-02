@@ -32,19 +32,21 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { lang, slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) return { title: "Not Found" };
 
-  const { lang } = await params;
   const isZh = lang === 'zh-CN';
+  const baseUrl = process.env.APP_BASE_URL || 'http://localhost:7001';
+  const canonical = isZh ? `${baseUrl}/blog/${slug}` : `${baseUrl}/${lang}/blog/${slug}`;
 
   return {
     title: isZh
       ? `${post.title} - 飞书 CLI 博客`
       : `${post.title} - Lark CLI Blog`,
     description: post.excerpt,
+    alternates: { canonical },
   };
 }
 

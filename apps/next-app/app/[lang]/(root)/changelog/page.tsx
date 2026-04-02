@@ -8,11 +8,14 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { lang } = await params;
   const isZh = lang === 'zh-CN';
+  const baseUrl = process.env.APP_BASE_URL || 'http://localhost:7001';
+  const canonical = isZh ? `${baseUrl}/changelog` : `${baseUrl}/${lang}/changelog`;
   return {
     title: isZh ? "更新日志 - 飞书 CLI" : "Changelog - Lark CLI",
     description: isZh
       ? "飞书 CLI 版本更新记录，包含新功能、问题修复和改进"
       : "Release notes and changelog for Lark CLI (Feishu CLI)",
+    alternates: { canonical },
   };
 }
 
