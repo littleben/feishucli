@@ -557,6 +557,21 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              className="mt-10 text-center"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-muted-foreground">
+                更多使用场景和技巧，请关注我们的{' '}
+                <Link href={`/${currentLocale}/blog`} className="text-primary font-medium hover:underline">
+                  博客
+                </Link>
+              </p>
+            </motion.div>
           </div>
         </section>
 
@@ -958,7 +973,7 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold text-foreground mb-3">内容</h3>
                 <ul className="space-y-2">
-                  <li><Link href={`/${currentLocale}/blog`} className="text-sm hover:text-foreground transition-colors">Blog</Link></li>
+                  <li><Link href={`/${currentLocale}/blog`} className="text-sm hover:text-foreground transition-colors">{t.header.navigation.blog}</Link></li>
                   <li><Link href={`/${currentLocale}/blog/cli-beginner-guide`} className="text-sm hover:text-foreground transition-colors">CLI 入门指南</Link></li>
                   <li><Link href={`/${currentLocale}/blog/feishu-cli-creator-contest`} className="text-sm hover:text-foreground transition-colors">创作者大赛</Link></li>
                 </ul>

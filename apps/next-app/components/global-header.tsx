@@ -64,17 +64,17 @@ export default function Header({ className }: HeaderProps) {
 
           {/* Desktop navigation */}
           <nav className="hidden md:flex md:items-center md:space-x-6">
-            <a href="#use-cases" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href={`/${currentLocale}#use-cases`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t.header.navigation.useCases}
             </a>
-            <a href="#quickstart" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href={`/${currentLocale}#quickstart`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t.header.navigation.quickstart}
             </a>
             <Link href={`/${currentLocale}/blog`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Blog
+              {t.header.navigation.blog}
             </Link>
             <Link href={`/${currentLocale}/changelog`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Changelog
+              {t.header.navigation.changelog}
             </Link>
           </nav>
 
@@ -137,17 +137,17 @@ export default function Header({ className }: HeaderProps) {
         <div className="md:hidden bg-background border-t border-border">
           <div className="px-2 pt-2 pb-3 space-y-2 sm:px-3">
             {/* Mobile Navigation Links */}
-            <a href="#use-cases" className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
+            <a href={`/${currentLocale}#use-cases`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
               {t.header.navigation.useCases}
             </a>
-            <a href="#quickstart" className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
+            <a href={`/${currentLocale}#quickstart`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
               {t.header.navigation.quickstart}
             </a>
             <Link href={`/${currentLocale}/blog`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
-              Blog
+              {t.header.navigation.blog}
             </Link>
             <Link href={`/${currentLocale}/changelog`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
-              Changelog
+              {t.header.navigation.changelog}
             </Link>
             <div className="border-t border-border my-2" />
             {/* Mobile Theme and Language Controls */}

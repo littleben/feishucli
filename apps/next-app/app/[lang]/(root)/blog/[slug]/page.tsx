@@ -37,8 +37,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!post) return { title: "Not Found" };
 
+  const { lang } = await params;
+  const isZh = lang === 'zh-CN';
+
   return {
-    title: `${post.title} - Feishu CLI Blog`,
+    title: isZh
+      ? `${post.title} - 飞书 CLI 博客`
+      : `${post.title} - Lark CLI Blog`,
     description: post.excerpt,
   };
 }
@@ -52,6 +57,8 @@ export default async function BlogPostPage({ params }: Props) {
   const Content = contentMap[slug];
   if (!Content) notFound();
 
+  const isZh = lang === 'zh-CN';
+
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-3xl px-6 py-16">
@@ -60,7 +67,7 @@ export default async function BlogPostPage({ params }: Props) {
           className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
         >
           <ChevronLeft className="size-4" />
-          返回文章列表
+          {isZh ? "返回文章列表" : "Back to articles"}
         </Link>
 
         <article>
@@ -79,7 +86,7 @@ export default async function BlogPostPage({ params }: Props) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
                   >
-                    原文 <ExternalLink className="size-3" />
+                    {isZh ? "原文" : "Source"} <ExternalLink className="size-3" />
                   </a>
                 </>
               )}

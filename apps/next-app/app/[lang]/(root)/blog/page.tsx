@@ -7,9 +7,13 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { lang } = await params;
+  const isZh = lang === 'zh-CN';
   return {
-    title: "Blog - Feishu CLI",
-    description: "Articles, tutorials, and community stories about Feishu CLI (Lark CLI)",
+    title: isZh ? "博客 - 飞书 CLI" : "Blog - Lark CLI",
+    description: isZh
+      ? "评测、教程、案例与社区动态，了解飞书 CLI 的最新玩法"
+      : "Articles, tutorials, and community stories about Lark CLI (Feishu CLI)",
   };
 }
 
@@ -27,6 +31,7 @@ const categoryColors: Record<string, string> = {
 
 export default async function BlogListPage({ params }: Props) {
   const { lang } = await params;
+  const isZh = lang === 'zh-CN';
 
   return (
     <div className="min-h-screen bg-background">
@@ -34,10 +39,10 @@ export default async function BlogListPage({ params }: Props) {
         <div className="mx-auto max-w-4xl px-6">
           <div className="mb-12">
             <h1 className="text-3xl font-bold tracking-tight text-foreground">
-              Blog
+              {isZh ? "博客" : "Blog"}
             </h1>
             <p className="mt-2 text-muted-foreground">
-              评测、教程、案例与社区动态
+              {isZh ? "评测、教程、案例与社区动态" : "Reviews, tutorials, case studies & community updates"}
             </p>
           </div>
 

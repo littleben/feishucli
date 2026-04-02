@@ -2004,7 +2004,8 @@ export const en: Locale = {
       demosDescription: "Explore example features",
       blog: "Blog",
       useCases: "Use Cases",
-      quickstart: "Quick Start"
+      quickstart: "Quick Start",
+      changelog: "Changelog"
     },
     demos: {
       ai: {

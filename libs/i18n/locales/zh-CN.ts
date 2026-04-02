@@ -2011,7 +2011,8 @@ export const zhCN: Locale = {
       demosDescription: "探索示例功能",
       blog: "博客",
       useCases: "使用场景",
-      quickstart: "快速上手"
+      quickstart: "快速上手",
+      changelog: "更新日志"
     },
     demos: {
       ai: {

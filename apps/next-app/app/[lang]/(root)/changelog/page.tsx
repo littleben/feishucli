@@ -1,6 +1,28 @@
 import { ExternalLink } from "lucide-react";
+import type { Metadata } from "next";
 
-const changelog = [
+type Props = {
+  params: Promise<{ lang: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { lang } = await params;
+  const isZh = lang === 'zh-CN';
+  return {
+    title: isZh ? "更新日志 - 飞书 CLI" : "Changelog - Lark CLI",
+    description: isZh
+      ? "飞书 CLI 版本更新记录，包含新功能、问题修复和改进"
+      : "Release notes and changelog for Lark CLI (Feishu CLI)",
+  };
+}
+
+const changelog: {
+  version: string;
+  date: string;
+  isInitialRelease?: boolean;
+  description?: { zh: string; en: string };
+  sections: { title: string; items: string[] }[];
+}[] = [
   {
     version: "v1.0.2",
     date: "2026-04-01",
@@ -86,7 +108,10 @@ const changelog = [
     version: "v1.0.0",
     date: "2026-03-28",
     isInitialRelease: true,
-    description: "The first open-source release of Lark CLI — the official command-line interface for Lark/Feishu.",
+    description: {
+      zh: "飞书 CLI 首个开源版本 —— 飞书/Lark 官方命令行工具。",
+      en: "The first open-source release of Lark CLI — the official command-line interface for Lark/Feishu.",
+    },
     sections: [
       {
         title: "Core Commands",
@@ -151,14 +176,30 @@ const tagColors: Record<string, string> = {
   "Developer Experience": "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-400",
 };
 
-export default function ChangelogPage() {
+const tagLabels: Record<string, Record<string, string>> = {
+  "Features": { zh: "新功能", en: "Features" },
+  "Bug Fixes": { zh: "问题修复", en: "Bug Fixes" },
+  "Documentation": { zh: "文档", en: "Documentation" },
+  "CI": { zh: "CI", en: "CI" },
+  "Chore": { zh: "维护", en: "Chore" },
+  "Core Commands": { zh: "核心命令", en: "Core Commands" },
+  "Service Shortcuts": { zh: "服务快捷命令", en: "Service Shortcuts" },
+  "AI Agent Skills (19 Skills)": { zh: "AI Agent 技能 (19 个)", en: "AI Agent Skills (19 Skills)" },
+  "Developer Experience": { zh: "开发者体验", en: "Developer Experience" },
+};
+
+export default async function ChangelogPage({ params }: Props) {
+  const { lang } = await params;
+  const isZh = lang === 'zh-CN';
+  const l = isZh ? 'zh' : 'en';
+
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-3xl px-6 py-24">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold">Changelog</h1>
-            <p className="text-muted-foreground mt-1">All notable changes to Feishu CLI</p>
+            <h1 className="text-3xl font-bold">{isZh ? "更新日志" : "Changelog"}</h1>
+            <p className="text-muted-foreground mt-1">{isZh ? "飞书 CLI 版本更新记录" : "All notable changes to Lark CLI"}</p>
           </div>
           <a
             href="https://github.com/larksuite/cli/blob/main/CHANGELOG.md"
@@ -166,7 +207,7 @@ export default function ChangelogPage() {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            View on GitHub <ExternalLink className="size-3.5" />
+            {isZh ? "GitHub 查看" : "View on GitHub"} <ExternalLink className="size-3.5" />
           </a>
         </div>
 
@@ -192,20 +233,22 @@ export default function ChangelogPage() {
                   <time className="text-sm text-muted-foreground">{release.date}</time>
                   {release.isInitialRelease && (
                     <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                      Initial Release
+                      {isZh ? "首个版本" : "Initial Release"}
                     </span>
                   )}
                 </div>
 
                 {release.description && (
-                  <p className="text-muted-foreground mb-4">{release.description}</p>
+                  <p className="text-muted-foreground mb-4">
+                    {typeof release.description === 'string' ? release.description : release.description[l]}
+                  </p>
                 )}
 
                 <div className="space-y-4">
                   {release.sections.map((section) => (
                     <div key={section.title}>
                       <span className={`inline-block text-xs font-medium px-2 py-0.5 rounded-full mb-2 ${tagColors[section.title] || "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400"}`}>
-                        {section.title}
+                        {tagLabels[section.title]?.[l] || section.title}
                       </span>
                       <ul className="space-y-1.5">
                         {section.items.map((item, i) => (
