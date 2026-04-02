@@ -1,7 +1,7 @@
 export default function XiaohuArticle() {
   return (
       <div className="space-y-6">
-        <img src="/images/calendar-demo.png" alt="智能任务助手与日历管理" className="w-full rounded-xl border border-border" />
+        <img src="/images/features/calendar-demo.png" alt="智能任务助手与日历管理" className="w-full rounded-xl border border-border" />
 
         <h2 className="text-xl font-semibold mt-8 mb-3">用 CLAUDE.md 打造智能任务助手</h2>
         <p className="text-muted-foreground leading-relaxed">

@@ -1,7 +1,7 @@
 export default function HuangshuArticle() {
   return (
       <div className="space-y-6">
-        <img src="/images/ai-doc-3.png" alt="AI 操作飞书知识库" className="w-full rounded-xl border border-border" />
+        <img src="/images/features/ai-doc-3.png" alt="AI 操作飞书知识库" className="w-full rounded-xl border border-border" />
 
         <h2 className="text-xl font-semibold mt-8 mb-3">知识库教程重构：让 AI 帮你整理文档体系</h2>
         <p className="text-muted-foreground leading-relaxed">

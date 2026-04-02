@@ -1,7 +1,7 @@
 export default function CliBeginnerGuide() {
   return (
       <div className="space-y-6">
-        <img src="/images/install-demo.png" alt="飞书 CLI 安装与使用" className="w-full rounded-xl border border-border" />
+        <img src="/images/features/install-demo.png" alt="飞书 CLI 安装与使用" className="w-full rounded-xl border border-border" />
 
         {/* Part 1 */}
         <div className="bg-muted/30 rounded-lg px-6 py-4 mb-6">

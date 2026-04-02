@@ -62,7 +62,7 @@ const appIconMap = [Bot, Zap, BookOpen];
 const appImageMap = [
   "/images/features/ai-doc-1.png",
   "/images/features/calendar-demo.png",
-  "/images/features/ai-doc-3.png"
+  "/images/features/overview.png"
 ];
 const roadmapIconMap = [Check, Settings, BookOpen, Palette, Play, FileText];
 // KOL author → blog slug mapping
@@ -149,16 +149,22 @@ export default function Home() {
       <div className="flex flex-col min-h-screen bg-background">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Background decorations */}
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-chart-1 rounded-full filter blur-3xl opacity-15 dark:opacity-30 animate-blob"></div>
-            <div className="absolute top-40 right-10 w-72 h-72 bg-chart-2 rounded-full filter blur-3xl opacity-15 dark:opacity-30 animate-blob animation-delay-2000"></div>
-            <div className="absolute -bottom-8 left-20 w-72 h-72 bg-chart-4 rounded-full filter blur-3xl opacity-15 dark:opacity-30 animate-blob animation-delay-4000"></div>
+          {/* Background image - hero only */}
+          <div className="absolute inset-0">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: 'url(/images/hero-bg.webp)',
+                backgroundRepeat: 'repeat-y',
+                backgroundSize: '100% auto',
+                backgroundPosition: 'center top',
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
           </div>
-        
           <div className="container px-4 md:px-6 relative z-10">
-            <motion.div 
-              className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto"
+            <motion.div
+              className="flex flex-col items-center text-center space-y-8 max-w-4xl mx-auto backdrop-blur-xl bg-background/80 rounded-3xl p-8 md:p-12"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}

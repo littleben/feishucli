@@ -1,7 +1,7 @@
 export default function LengyiArticle() {
   return (
       <div className="space-y-6">
-        <img src="/images/overview.png" alt="飞书 CLI 功能全景" className="w-full rounded-xl border border-border" />
+        <img src="/images/features/overview.png" alt="飞书 CLI 功能全景" className="w-full rounded-xl border border-border" />
 
         <h2 className="text-xl font-semibold mt-8 mb-3">Agent Native 时代，软件的使用者变了</h2>
         <p className="text-muted-foreground leading-relaxed">
@@ -67,7 +67,7 @@ export default function LengyiArticle() {
           除了飞书之外，企业微信也推出了自己的 CLI 工具。两者的核心理念相似——为 AI Agent 提供操作企业办公系统的能力。但在覆盖范围上有所不同：飞书 CLI 目前覆盖了 10+ 个业务域（文档、消息、日历、多维表格、任务、邮件、知识库等），命令数量达到 200+ 条；企微 CLI 则更侧重于消息通讯和审批流程。
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          两个产品���选择了开源路线，说明行业正在形成共识：企业办公工具需要向 AI 开放操作权限。
+          两个产品都选择了开源路线，说明行业正在形成共识：企业办公工具需要向 AI 开放操作权限。
         </p>
 
         <h2 className="text-xl font-semibold mt-8 mb-3">三层洞察：从效率到角色转变</h2>

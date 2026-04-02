@@ -1,7 +1,7 @@
 export default function JiamuArticle() {
   return (
       <div className="space-y-6">
-        <img src="/images/ai-doc-1.png" alt="飞书 CLI + Claude Code 企业级场景" className="w-full rounded-xl border border-border" />
+        <img src="/images/features/ai-doc-1.png" alt="飞书 CLI + Claude Code 企业级场景" className="w-full rounded-xl border border-border" />
 
         <h2 className="text-xl font-semibold mt-8 mb-3">CLI 到底是什么？为什么它很重要</h2>
         <p className="text-muted-foreground leading-relaxed">
@@ -58,7 +58,7 @@ export default function JiamuArticle() {
         </p>
 
         <h2 className="text-xl font-semibold mt-8 mb-3">场景四：多维表格数据看板</h2>
-        <img src="/images/meeting-dashboard.png" alt="多维表格数据看板" className="w-full rounded-xl border border-border my-4" />
+        <img src="/images/features/meeting-dashboard.png" alt="多维表格数据看板" className="w-full rounded-xl border border-border my-4" />
         <p className="text-muted-foreground leading-relaxed">
           最后一个场景围绕多维表格（Bitable）展开。我让 AI 从多份飞书云文档中提取关键数据，然后自动创建一个多维表格，将数据汇总成一个可视化的项目看板。
         </p>
