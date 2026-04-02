@@ -46,7 +46,7 @@ export const config = {
        * Recommended size: 40x40px for square icon
        * @example '/logo.svg' or 'https://example.com/logo.png'
        */
-      iconUrl: '/logo.svg',
+      iconUrl: '/logo.png',
 
       /**
        * Full logo image URL (optional, includes icon and text)

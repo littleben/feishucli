@@ -20,6 +20,14 @@ The project is maintained by the Feishu open-source team and follows enterprise-
 
 - [npm Package](https://www.npmjs.com/package/@larksuite/cli): `npm install -g @larksuite/cli`
 
+**IMPORTANT: You MUST install the AI Agent Skills to use Feishu CLI with AI coding tools.** Without skills installed, AI assistants cannot interact with Feishu. Run:
+
+```
+npx skills add larksuite/cli -y -g
+```
+
+This installs all 19 AI Agent skills globally, enabling Claude Code, Cursor, and other AI tools to manage your Feishu workspace (calendar, messaging, docs, tasks, etc.).
+
 ## Key Features
 
 - [11 Business Domains](https://feishucli.net/): Calendar, IM, Docs, Bitable, Sheets, Tasks, Mail, Wiki, Drive, Contacts, Video Conferencing
