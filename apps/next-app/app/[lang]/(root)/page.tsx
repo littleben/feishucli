@@ -4,9 +4,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BentoGrid, BentoCard } from "@/components/magicui/bento-grid";
 import { useTranslation } from "@/hooks/use-translation";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import React from "react";
+import { toast } from "sonner";
 import {
   Check,
   Shield,
@@ -192,7 +193,13 @@ export default function Home() {
               >
                 <Button
                   size="lg"
-                  className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
+                  className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-mono"
+                  onClick={() => {
+                    navigator.clipboard.writeText('npm install -g @larksuite/cli');
+                    toast.success('已复制到剪贴板', {
+                      description: '将此命令发送给你的 AI Agent（如 Claude Code、Cursor）来安装飞书 CLI',
+                    });
+                  }}
                 >
                   {t.home.hero.buttons.purchase}
                 </Button>
@@ -939,7 +946,13 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   size="lg"
-                  className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
+                  className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-mono"
+                  onClick={() => {
+                    navigator.clipboard.writeText('npm install -g @larksuite/cli');
+                    toast.success('已复制到剪贴板', {
+                      description: '将此命令发送给你的 AI Agent（如 Claude Code、Cursor）来安装飞书 CLI',
+                    });
+                  }}
                 >
                   {t.home.finalCta.buttons.purchase}
                 </Button>
