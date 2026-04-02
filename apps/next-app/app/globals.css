@@ -57,6 +57,13 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Ensure pointer cursor on all interactive elements */
+  a, button, [role="button"], [type="button"], [type="submit"], [type="reset"],
+  input[type="checkbox"], input[type="radio"], select, summary,
+  [tabindex]:not([tabindex="-1"]) {
+    cursor: pointer;
+  }
   
   /* Fix container centering for Tailwind v4 */
   .container {
