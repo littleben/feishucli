@@ -919,7 +919,11 @@ export default function Home() {
             </div>
             <div className="mt-6 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground/60">
               <span>{t.home.footer.copyright.replace('{year}', new Date().getFullYear().toString())}</span>
-              <span className="mt-2 md:mt-0">{t.home.footer.disclaimer}</span>
+              <div className="flex items-center space-x-4 mt-2 md:mt-0">
+                <Link href={`/${currentLocale}/terms`} className="hover:text-foreground transition-colors">Terms of Service</Link>
+                <Link href={`/${currentLocale}/privacy`} className="hover:text-foreground transition-colors">Privacy Policy</Link>
+                <span>{t.home.footer.disclaimer}</span>
+              </div>
             </div>
           </div>
         </footer>

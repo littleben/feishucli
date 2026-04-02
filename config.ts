@@ -87,7 +87,7 @@ export const config = {
        * Default color scheme
        * @type {'default' | 'claude' | 'cosmic-night' | 'modern-minimal' | 'ocean-breeze'}
        */
-      defaultColorScheme: 'default' as const,
+      defaultColorScheme: 'claude' as const,
 
       /**
        * Storage key for theme persistence

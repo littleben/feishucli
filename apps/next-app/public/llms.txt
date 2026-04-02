@@ -1,0 +1,33 @@
+# Feishu CLI (飞书 CLI)
+
+> Feishu CLI is the official open-source command-line tool for Feishu/Lark, covering 11 business domains with 200+ commands and 19 AI Agent skills. It enables developers and power users to automate Feishu workflows via terminal, and integrates natively with AI coding tools like Claude Code, Cursor, and Qwen Code. MIT licensed, 5,900+ GitHub Stars.
+
+Feishu CLI (also known as Lark CLI for the international version) lets you operate the entire Feishu workspace from the command line. It supports messaging, documents, spreadsheets, databases (Bitable), calendar, tasks, email, knowledge base (Wiki), cloud storage (Drive), contacts, and video conferencing.
+
+The tool provides a three-tier command architecture: quick shortcut commands for common operations, structured API commands for full control, and native API calls for advanced use cases. Setup takes about 3 minutes: install via npm, scan QR code to authorize, and start using.
+
+A key differentiator is its 19 built-in AI Agent skills, which allow AI coding assistants (Claude Code, Cursor, Kimi Code, etc.) to directly interact with Feishu — managing tasks, sending messages, scheduling meetings, and organizing documents autonomously.
+
+The project is maintained by the Feishu open-source team and follows enterprise-grade security practices using official OAuth authentication flows.
+
+## Core Resources
+
+- [GitHub Repository](https://github.com/larksuite/cli): Source code, issues, and releases
+- [Official Documentation](https://www.feishu.cn/content/article/7623291503305083853): Getting started guide and feature overview
+- [WaytoAGI Community](https://waytoagi.feishu.cn/wiki/Zsp2wxsKEiRTEjkajJFc7FBGnh3): Community knowledge base and use cases
+
+## Installation
+
+- [npm Package](https://www.npmjs.com/package/@larksuite/cli): `npm install -g @larksuite/cli`
+
+## Key Features
+
+- [11 Business Domains](https://feishucli.net/): Calendar, IM, Docs, Bitable, Sheets, Tasks, Mail, Wiki, Drive, Contacts, Video Conferencing
+- [200+ Commands](https://feishucli.net/): Curated command set covering all business domains
+- [19 AI Agent Skills](https://feishucli.net/): Built-in skills for AI coding tool integration
+- [Multi-AI Tool Support](https://feishucli.net/): Works with Claude Code, Cursor, Qwen Code, Kimi Code, and more
+
+## Optional
+
+- [Feishu Open Platform](https://open.feishu.cn/): Feishu developer platform and API documentation
+- [Lark Developer](https://open.larksuite.com/): International Lark developer platform
