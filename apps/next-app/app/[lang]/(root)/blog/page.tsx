@@ -20,10 +20,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const categoryLabels: Record<string, string> = {
-  review: "评测",
-  tutorial: "教程",
-  event: "活动",
+const categoryLabels: Record<string, Record<string, string>> = {
+  zh: {
+    review: "评测",
+    tutorial: "教程",
+    event: "活动",
+  },
+  en: {
+    review: "Review",
+    tutorial: "Tutorial",
+    event: "Event",
+  },
 };
 
 const categoryColors: Record<string, string> = {
@@ -50,7 +57,17 @@ export default async function BlogListPage({ params }: Props) {
           </div>
 
           <div className="space-y-6">
-            {blogPosts.map((post) => (
+            {blogPosts.map((post) => {
+              const localizedPost = isZh
+                ? post
+                : {
+                    ...post,
+                    title: post.translations?.en?.title ?? post.title,
+                    excerpt: post.translations?.en?.excerpt ?? post.excerpt,
+                    author: post.translations?.en?.author ?? post.author,
+                  };
+
+              return (
               <Link
                 key={post.slug}
                 href={`/${lang}/blog/${post.slug}`}
@@ -60,23 +77,23 @@ export default async function BlogListPage({ params }: Props) {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-2">
                       <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${categoryColors[post.category]}`}>
-                        {categoryLabels[post.category]}
+                        {categoryLabels[isZh ? 'zh' : 'en'][post.category]}
                       </span>
                       <span className="text-xs text-muted-foreground">{post.date}</span>
                     </div>
                     <h2 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
-                      {post.title}
+                      {localizedPost.title}
                     </h2>
                     <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
-                      {post.excerpt}
+                      {localizedPost.excerpt}
                     </p>
                     <span className="mt-2 inline-block text-xs text-muted-foreground/60">
-                      {post.author}
+                      {localizedPost.author}
                     </span>
                   </div>
                 </div>
               </Link>
-            ))}
+            );})}
           </div>
         </div>
       </section>

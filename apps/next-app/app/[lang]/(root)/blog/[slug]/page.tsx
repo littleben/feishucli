@@ -40,12 +40,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isZh = lang === 'zh-CN';
   const baseUrl = process.env.APP_BASE_URL || 'http://localhost:7001';
   const canonical = isZh ? `${baseUrl}/blog/${slug}` : `${baseUrl}/${lang}/blog/${slug}`;
+  const localizedPost = isZh
+    ? post
+    : {
+        ...post,
+        title: post.translations?.en?.title ?? post.title,
+        excerpt: post.translations?.en?.excerpt ?? post.excerpt,
+        author: post.translations?.en?.author ?? post.author,
+      };
 
   return {
     title: isZh
       ? `${post.title} - 飞书 CLI 博客`
-      : `${post.title} - Lark CLI Blog`,
-    description: post.excerpt,
+      : `${localizedPost.title} - Lark CLI Blog`,
+    description: localizedPost.excerpt,
     alternates: { canonical },
   };
 }
@@ -60,6 +68,15 @@ export default async function BlogPostPage({ params }: Props) {
   if (!Content) notFound();
 
   const isZh = lang === 'zh-CN';
+  const sourceUrl = post.originalUrl && !post.originalUrl.includes('...') ? post.originalUrl : undefined;
+  const localizedPost = isZh
+    ? post
+    : {
+        ...post,
+        title: post.translations?.en?.title ?? post.title,
+        excerpt: post.translations?.en?.excerpt ?? post.excerpt,
+        author: post.translations?.en?.author ?? post.author,
+      };
 
   return (
     <div className="min-h-screen bg-background">
@@ -74,16 +91,16 @@ export default async function BlogPostPage({ params }: Props) {
 
         <article>
           <header className="mb-8">
-            <h1 className="text-2xl sm:text-3xl font-bold leading-tight">{post.title}</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold leading-tight">{localizedPost.title}</h1>
             <div className="flex items-center gap-3 mt-3 text-sm text-muted-foreground">
-              <span>{post.author}</span>
+              <span>{localizedPost.author}</span>
               <span>·</span>
               <time>{post.date}</time>
-              {post.originalUrl && (
+              {sourceUrl && (
                 <>
                   <span>·</span>
                   <a
-                    href={post.originalUrl}
+                    href={sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
@@ -95,9 +112,28 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </header>
 
-          <div className="prose prose-neutral dark:prose-invert max-w-none">
-            <Content />
-          </div>
+          {isZh ? (
+            <div className="prose prose-neutral dark:prose-invert max-w-none">
+              <Content />
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-5">
+              <p className="text-muted-foreground leading-relaxed">{localizedPost.excerpt}</p>
+              <p className="text-muted-foreground leading-relaxed">
+                This article is currently available in Chinese only. Use the source link above to read the original version.
+              </p>
+              {sourceUrl && (
+                <a
+                  href={post.originalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary hover:underline"
+                >
+                  Read the original Chinese article <ExternalLink className="size-4" />
+                </a>
+              )}
+            </div>
+          )}
         </article>
       </div>
     </div>

@@ -19,15 +19,15 @@
 
   <!-- Blog -->
   <url>
-    <loc>https://feishucli.net/zh-CN/blog</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN/blog"/>
+    <loc>https://feishucli.net/blog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://feishucli.net/en/blog</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN/blog"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -35,47 +35,101 @@
 
   <!-- Blog Posts -->
   <url>
-    <loc>https://feishucli.net/zh-CN/blog/jiamu-claude-code-feishu-cli</loc>
+    <loc>https://feishucli.net/blog/jiamu-claude-code-feishu-cli</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/jiamu-claude-code-feishu-cli"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/jiamu-claude-code-feishu-cli"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feishucli.net/zh-CN/blog/lengyi-feishu-wecom-cli-8-plays</loc>
+    <loc>https://feishucli.net/en/blog/jiamu-claude-code-feishu-cli</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/jiamu-claude-code-feishu-cli"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/jiamu-claude-code-feishu-cli"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feishucli.net/zh-CN/blog/huangshu-ai-control-feishu</loc>
+    <loc>https://feishucli.net/blog/lengyi-feishu-wecom-cli-8-plays</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/lengyi-feishu-wecom-cli-8-plays"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/lengyi-feishu-wecom-cli-8-plays"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feishucli.net/zh-CN/blog/xiaohu-smart-task-assistant</loc>
+    <loc>https://feishucli.net/en/blog/lengyi-feishu-wecom-cli-8-plays</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/lengyi-feishu-wecom-cli-8-plays"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/lengyi-feishu-wecom-cli-8-plays"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feishucli.net/zh-CN/blog/cli-beginner-guide</loc>
+    <loc>https://feishucli.net/blog/huangshu-ai-control-feishu</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/huangshu-ai-control-feishu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/huangshu-ai-control-feishu"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://feishucli.net/zh-CN/blog/feishu-cli-creator-contest</loc>
+    <loc>https://feishucli.net/en/blog/huangshu-ai-control-feishu</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/huangshu-ai-control-feishu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/huangshu-ai-control-feishu"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/blog/xiaohu-smart-task-assistant</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/xiaohu-smart-task-assistant"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/xiaohu-smart-task-assistant"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/en/blog/xiaohu-smart-task-assistant</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/xiaohu-smart-task-assistant"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/xiaohu-smart-task-assistant"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/blog/cli-beginner-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/cli-beginner-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/cli-beginner-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/en/blog/cli-beginner-guide</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/cli-beginner-guide"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/cli-beginner-guide"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/blog/feishu-cli-creator-contest</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/feishu-cli-creator-contest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/feishu-cli-creator-contest"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/en/blog/feishu-cli-creator-contest</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/blog/feishu-cli-creator-contest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/blog/feishu-cli-creator-contest"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Changelog -->
   <url>
-    <loc>https://feishucli.net/zh-CN/changelog</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN/changelog"/>
+    <loc>https://feishucli.net/changelog</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/changelog"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/changelog"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://feishucli.net/en/changelog</loc>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/zh-CN/changelog"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/changelog"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/changelog"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -83,12 +137,30 @@
 
   <!-- Legal -->
   <url>
-    <loc>https://feishucli.net/zh-CN/terms</loc>
+    <loc>https://feishucli.net/terms</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/terms"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://feishucli.net/zh-CN/privacy</loc>
+    <loc>https://feishucli.net/en/terms</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/terms"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/privacy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://feishucli.net/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://feishucli.net/privacy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://feishucli.net/en/privacy"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

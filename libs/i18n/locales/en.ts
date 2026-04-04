@@ -128,7 +128,7 @@ export const en: Locale = {
       wechat: {
         title: "Lark CLI - WeChat Login",
         description: "Sign in to Lark CLI using your WeChat account. Convenient authentication for Chinese users.",
-        keywords: "WeChat login, 微信登录, social login, Chinese authentication"
+        keywords: "WeChat login, social login, Chinese authentication"
       }
     },
     signin: {
@@ -864,8 +864,8 @@ export const en: Locale = {
         description: "Perfect for short-term projects",
         duration: "month",
         features: {
-          "所有高级功能": "All premium features",
-          "优先支持": "Priority support"
+          "All premium features": "All premium features",
+          "Priority support": "Priority support"
         }
       },
       yearly: {
@@ -873,9 +873,9 @@ export const en: Locale = {
         description: "Best value for long-term use",
         duration: "year",
         features: {
-          "所有高级功能": "All premium features",
-          "优先支持": "Priority support",
-          "两个月免费": "2 months free"
+          "All premium features": "All premium features",
+          "Priority support": "Priority support",
+          "2 months free": "2 months free"
         }
       },
       lifetime: {
@@ -883,9 +883,9 @@ export const en: Locale = {
         description: "One-time payment, lifetime access",
         duration: "lifetime",
         features: {
-          "所有高级功能": "All premium features",
-          "优先支持": "Priority support",
-          "终身免费更新": "Free lifetime updates"
+          "All premium features": "All premium features",
+          "Priority support": "Priority support",
+          "Free lifetime updates": "Free lifetime updates"
         }
       }
     }
@@ -2044,7 +2044,7 @@ export const en: Locale = {
     language: {
       switchLanguage: "Switch Language",
       english: "English",
-      chinese: "中文"
+      chinese: "Chinese"
     },
     mobile: {
       themeSettings: "Theme Settings",

@@ -6,6 +6,13 @@ export type BlogPost = {
   date: string;
   category: "review" | "tutorial" | "event";
   originalUrl?: string;
+  translations?: {
+    en?: {
+      title: string;
+      excerpt: string;
+      author?: string;
+    };
+  };
 };
 
 export const blogPosts: BlogPost[] = [
@@ -17,6 +24,13 @@ export const blogPosts: BlogPost[] = [
     date: "2026-03-28",
     category: "review",
     originalUrl: "https://mp.weixin.qq.com/s/NTdxtKqE...",
+    translations: {
+      en: {
+        title: "Feishu CLI Is Open Source: 4 Enterprise Workflows Built with Claude Code",
+        excerpt: "From personal profile docs to content production, group-chat summaries, and Bitable dashboards, Jiamu shows four real enterprise scenarios powered by Claude Code + Feishu CLI.",
+        author: "Jiamu",
+      },
+    },
   },
   {
     slug: "lengyi-feishu-wecom-cli-8-plays",
@@ -26,6 +40,13 @@ export const blogPosts: BlogPost[] = [
     date: "2026-03-31",
     category: "tutorial",
     originalUrl: "https://mp.weixin.qq.com/s/W41fFTDt...",
+    translations: {
+      en: {
+        title: "What Are Feishu CLI and WeCom CLI? 8 Practical Use Cases",
+        excerpt: "From daily schedule briefings and automated weekly reports to meeting follow-ups and knowledge-base cleanup, Lengyi breaks down eight real-world use cases and why every vendor is building CLI interfaces.",
+        author: "Lengyi",
+      },
+    },
   },
   {
     slug: "huangshu-ai-control-feishu",
@@ -35,6 +56,13 @@ export const blogPosts: BlogPost[] = [
     date: "2026-03-29",
     category: "review",
     originalUrl: "https://mp.weixin.qq.com/s/jwOPySDv...",
+    translations: {
+      en: {
+        title: "I Let AI Operate My Feishu Workspace — and It Did Better Than Me",
+        excerpt: "Huangshu used Feishu CLI to rebuild a knowledge-base tutorial structure, sync Markdown into Feishu Docs, generate docs from meeting recordings, and explain the three technical reasons the tool feels so effective.",
+        author: "Huangshu",
+      },
+    },
   },
   {
     slug: "xiaohu-smart-task-assistant",
@@ -44,6 +72,13 @@ export const blogPosts: BlogPost[] = [
     date: "2026-03-28",
     category: "tutorial",
     originalUrl: "https://mp.weixin.qq.com/s/MvxDW_R-...",
+    translations: {
+      en: {
+        title: "Feishu CLI Open Source Means Every AI Can Become a Task Assistant",
+        excerpt: "Xiaohu built a smart task assistant with Feishu CLI + Claude Code, turning chat into tasks, coordinating calendars, generating message briefings, and syncing knowledge bases with Bitable.",
+        author: "Xiaohu",
+      },
+    },
   },
   {
     slug: "cli-beginner-guide",
@@ -52,6 +87,13 @@ export const blogPosts: BlogPost[] = [
     author: "飞书 CLI 社区",
     date: "2026-03-30",
     category: "tutorial",
+    translations: {
+      en: {
+        title: "CLI Beginner's Guide: From Command Line Basics to Using Lark CLI",
+        excerpt: "A beginner-friendly explanation of CLI using a restaurant-ordering analogy, plus a full feature map of Lark CLI and an overview of 19 AI Agent skills.",
+        author: "Lark CLI Community",
+      },
+    },
   },
   {
     slug: "feishu-cli-creator-contest",
@@ -61,5 +103,12 @@ export const blogPosts: BlogPost[] = [
     date: "2026-04-01",
     category: "event",
     originalUrl: "https://waytoagi.feishu.cn/wiki/R4S3w8wTTie04nkYiL6c8rxon4d",
+    translations: {
+      en: {
+        title: "Feishu CLI Creator Contest: Win a Mac Mini with Your Ideas",
+        excerpt: "The Feishu CLI Creator Contest is now live. Submit a CLI skill or share your usage story for a chance to win prizes including a Mac Mini before April 20.",
+        author: "Feishu CLI Team",
+      },
+    },
   },
 ];

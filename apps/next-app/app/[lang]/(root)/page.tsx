@@ -202,8 +202,11 @@ export default function Home() {
                   className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-mono"
                   onClick={() => {
                     navigator.clipboard.writeText('npm install -g @larksuite/cli');
-                    toast.success('已复制到剪贴板', {
-                      description: '将此命令发送给你的 AI Agent（如 Claude Code、Cursor）来安装飞书 CLI',
+                    toast.success(currentLocale === 'zh-CN' ? '已复制到剪贴板' : 'Copied to clipboard', {
+                      description:
+                        currentLocale === 'zh-CN'
+                          ? '将此命令发送给你的 AI Agent（如 Claude Code、Cursor）来安装飞书 CLI'
+                          : 'Send this command to your AI agent (such as Claude Code or Cursor) to install Lark CLI',
                     });
                   }}
                 >
@@ -579,9 +582,9 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <p className="text-muted-foreground">
-                更多使用场景和技巧，请关注我们的{' '}
+                {currentLocale === 'zh-CN' ? '更多使用场景和技巧，请关注我们的 ' : 'For more use cases and tips, visit our '}
                 <Link href={`/${currentLocale}/blog`} className="text-primary font-medium hover:underline">
-                  博客
+                  {currentLocale === 'zh-CN' ? '博客' : 'blog'}
                 </Link>
               </p>
             </motion.div>
@@ -955,8 +958,11 @@ export default function Home() {
                   className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-mono"
                   onClick={() => {
                     navigator.clipboard.writeText('npm install -g @larksuite/cli');
-                    toast.success('已复制到剪贴板', {
-                      description: '将此命令发送给你的 AI Agent（如 Claude Code、Cursor）来安装飞书 CLI',
+                    toast.success(currentLocale === 'zh-CN' ? '已复制到剪贴板' : 'Copied to clipboard', {
+                      description:
+                        currentLocale === 'zh-CN'
+                          ? '将此命令发送给你的 AI Agent（如 Claude Code、Cursor）来安装飞书 CLI'
+                          : 'Send this command to your AI agent (such as Claude Code or Cursor) to install Lark CLI',
                     });
                   }}
                 >
@@ -982,31 +988,31 @@ export default function Home() {
             {/* Main footer links - prominent */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
               <div>
-                <h3 className="font-semibold text-foreground mb-3">产品</h3>
+                <h3 className="font-semibold text-foreground mb-3">{currentLocale === 'zh-CN' ? '产品' : 'Product'}</h3>
                 <ul className="space-y-2">
                   <li><a href="https://github.com/larksuite/cli" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-foreground transition-colors">GitHub</a></li>
-                  <li><Link href={`/${currentLocale}/changelog`} className="text-sm hover:text-foreground transition-colors">更新日志</Link></li>
+                  <li><Link href={`/${currentLocale}/changelog`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '更新日志' : 'Changelog'}</Link></li>
                   <li><a href="https://www.feishu.cn/content/article/7623291503305083853" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-foreground transition-colors">{t.home.footer.links.officialDocs}</a></li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-foreground mb-3">内容</h3>
+                <h3 className="font-semibold text-foreground mb-3">{currentLocale === 'zh-CN' ? '内容' : 'Content'}</h3>
                 <ul className="space-y-2">
                   <li><Link href={`/${currentLocale}/blog`} className="text-sm hover:text-foreground transition-colors">{t.header.navigation.blog}</Link></li>
-                  <li><Link href={`/${currentLocale}/blog/cli-beginner-guide`} className="text-sm hover:text-foreground transition-colors">CLI 入门指南</Link></li>
-                  <li><Link href={`/${currentLocale}/blog/feishu-cli-creator-contest`} className="text-sm hover:text-foreground transition-colors">创作者大赛</Link></li>
+                  <li><Link href={`/${currentLocale}/blog/cli-beginner-guide`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? 'CLI 入门指南' : "CLI Beginner's Guide"}</Link></li>
+                  <li><Link href={`/${currentLocale}/blog/feishu-cli-creator-contest`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '创作者大赛' : 'Creator Contest'}</Link></li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-foreground mb-3">社区</h3>
+                <h3 className="font-semibold text-foreground mb-3">{currentLocale === 'zh-CN' ? '社区' : 'Community'}</h3>
                 <ul className="space-y-2">
                   <li><a href="https://waytoagi.feishu.cn/wiki/Zsp2wxsKEiRTEjkajJFc7FBGnh3" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-foreground transition-colors">{t.home.footer.links.community}</a></li>
-                  <li><Link href={`/${currentLocale}/blog/jiamu-claude-code-feishu-cli`} className="text-sm hover:text-foreground transition-colors">甲木：企业级场景实战</Link></li>
-                  <li><Link href={`/${currentLocale}/blog/lengyi-feishu-wecom-cli-8-plays`} className="text-sm hover:text-foreground transition-colors">冷逸：8 大玩法</Link></li>
+                  <li><Link href={`/${currentLocale}/blog/jiamu-claude-code-feishu-cli`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '甲木：企业级场景实战' : 'Jiamu: Enterprise Workflows'}</Link></li>
+                  <li><Link href={`/${currentLocale}/blog/lengyi-feishu-wecom-cli-8-plays`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '冷逸：8 大玩法' : 'Lengyi: 8 Use Cases'}</Link></li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-foreground mb-3">关于</h3>
+                <h3 className="font-semibold text-foreground mb-3">{currentLocale === 'zh-CN' ? '关于' : 'About'}</h3>
                 <ul className="space-y-2">
                   <li><Link href={`/${currentLocale}/terms`} className="text-sm hover:text-foreground transition-colors">Terms of Service</Link></li>
                   <li><Link href={`/${currentLocale}/privacy`} className="text-sm hover:text-foreground transition-colors">Privacy Policy</Link></li>
