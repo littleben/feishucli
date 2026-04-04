@@ -39,6 +39,7 @@ import {
 } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { translations } from "@libs/i18n";
+import { getLocalizedPath } from "@/lib/locale-path";
 
 interface PageProps {
   params: { lang: string }
@@ -93,6 +94,13 @@ export default function Home() {
     features: 0,
     satisfaction: 0
   });
+
+  const copyInstallCommand = useCallback((command: string, description: string) => {
+    navigator.clipboard.writeText(command);
+    toast.success(currentLocale === 'zh-CN' ? '已复制到剪贴板' : 'Copied to clipboard', {
+      description,
+    });
+  }, [currentLocale]);
 
   const statsRef = useRef(null);
   const isStatsInView = useInView(statsRef, { once: true });
@@ -199,28 +207,21 @@ export default function Home() {
               >
                 <Button
                   size="lg"
-                  className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-mono"
-                  onClick={() => {
-                    navigator.clipboard.writeText('npm install -g @larksuite/cli');
-                    toast.success(currentLocale === 'zh-CN' ? '已复制到剪贴板' : 'Copied to clipboard', {
-                      description:
-                        currentLocale === 'zh-CN'
-                          ? '将此命令发送给你的 AI Agent（如 Claude Code、Cursor）来安装飞书 CLI'
-                          : 'Send this command to your AI agent (such as Claude Code or Cursor) to install Lark CLI',
-                    });
-                  }}
+                  className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
+                  asChild
                 >
-                  {t.home.hero.buttons.purchase}
+                  <a href="#install">{currentLocale === 'zh-CN' ? '立即安装' : 'Install Now'}</a>
                 </Button>
-                <a href="https://github.com/larksuite/cli" target="_blank" rel="noopener noreferrer">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
-                  >
-                    {t.home.hero.buttons.demo}
-                  </Button>
-                </a>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105"
+                  asChild
+                >
+                  <Link href={getLocalizedPath(currentLocale, '/blog')}>
+                    {currentLocale === 'zh-CN' ? '查看案例' : 'View Use Cases'}
+                  </Link>
+                </Button>
               </motion.div>
 
               <motion.div 
@@ -239,6 +240,87 @@ export default function Home() {
                 </div>
               </motion.div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* Install Section */}
+        <section id="install" className="py-24 bg-background">
+          <div className="container px-4 md:px-6">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                {t.home.install.title}
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                {t.home.install.subtitle}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              {t.home.install.cards.map((card: any, index: number) => (
+                <motion.div
+                  key={card.title}
+                  className="rounded-3xl border border-border bg-card p-6 shadow-sm"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div>
+                      <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary mb-3">
+                        {card.badge}
+                      </div>
+                      <h3 className="text-2xl font-bold text-foreground mb-2">{card.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{card.description}</p>
+                    </div>
+                    <div className="rounded-2xl bg-muted p-3">
+                      {index === 0 ? <Terminal className="h-5 w-5 text-primary" /> : <Bot className="h-5 w-5 text-primary" />}
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    {card.commands.map((commandItem: any) => (
+                      <div key={commandItem.label} className="rounded-2xl border border-border bg-background/80 p-4">
+                        <div className="flex items-center justify-between gap-4 mb-3">
+                          <div>
+                            <div className="flex flex-wrap items-center gap-2 mb-1">
+                              <span className="text-sm font-semibold text-foreground">{commandItem.label}</span>
+                              {commandItem.highlight && (
+                                <span className="rounded-full bg-chart-1/10 px-2 py-0.5 text-xs font-medium text-chart-1">
+                                  {commandItem.highlight}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-xs text-muted-foreground">{commandItem.note}</p>
+                          </div>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="shrink-0"
+                            onClick={() => copyInstallCommand(commandItem.value, card.copyDescription)}
+                          >
+                            {t.home.install.copyButton}
+                          </Button>
+                        </div>
+                        <div className="rounded-xl bg-muted/60 px-4 py-3 font-mono text-xs text-foreground break-all">
+                          {commandItem.value}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 rounded-2xl border border-dashed border-border bg-muted/30 p-4 text-sm text-muted-foreground leading-relaxed">
+                    {card.footer}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -583,7 +665,7 @@ export default function Home() {
             >
               <p className="text-muted-foreground">
                 {currentLocale === 'zh-CN' ? '更多使用场景和技巧，请关注我们的 ' : 'For more use cases and tips, visit our '}
-                <Link href={`/${currentLocale}/blog`} className="text-primary font-medium hover:underline">
+                <Link href={getLocalizedPath(currentLocale, '/blog')} className="text-primary font-medium hover:underline">
                   {currentLocale === 'zh-CN' ? '博客' : 'blog'}
                 </Link>
               </p>
@@ -815,7 +897,7 @@ export default function Home() {
                     </motion.div>
                   );
                   return caseSlug ? (
-                    <Link key={index} href={`/${currentLocale}/blog/${caseSlug}`}>
+                    <Link key={index} href={getLocalizedPath(currentLocale, `/blog/${caseSlug}`)}>
                       {caseCard}
                     </Link>
                   ) : (
@@ -870,7 +952,7 @@ export default function Home() {
                     </motion.div>
                   );
                   return slug ? (
-                    <Link key={index} href={`/${currentLocale}/blog/${slug}`}>
+                    <Link key={index} href={getLocalizedPath(currentLocale, `/blog/${slug}`)}>
                       {card}
                     </Link>
                   ) : (
@@ -879,9 +961,9 @@ export default function Home() {
                 })}
               </div>
               <div className="mt-8 text-center">
-                <Link href={`/${currentLocale}/blog`}>
+                <Link href={getLocalizedPath(currentLocale, '/blog')}>
                   <Button variant="outline" className="rounded-full">
-                    查看全部文章 →
+                    {currentLocale === 'zh-CN' ? '查看全部文章 →' : 'View all articles →'}
                   </Button>
                 </Link>
               </div>
@@ -957,13 +1039,12 @@ export default function Home() {
                   size="lg"
                   className="px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 font-mono"
                   onClick={() => {
-                    navigator.clipboard.writeText('npm install -g @larksuite/cli');
-                    toast.success(currentLocale === 'zh-CN' ? '已复制到剪贴板' : 'Copied to clipboard', {
-                      description:
-                        currentLocale === 'zh-CN'
-                          ? '将此命令发送给你的 AI Agent（如 Claude Code、Cursor）来安装飞书 CLI'
-                          : 'Send this command to your AI agent (such as Claude Code or Cursor) to install Lark CLI',
-                    });
+                    copyInstallCommand(
+                      'npm install -g @larksuite/cli',
+                      currentLocale === 'zh-CN'
+                        ? '将此命令发送给你的 AI Agent（如 Claude Code、Cursor）来安装飞书 CLI'
+                        : 'Send this command to your AI agent (such as Claude Code or Cursor) to install Lark CLI'
+                    );
                   }}
                 >
                   {t.home.finalCta.buttons.purchase}
@@ -991,31 +1072,31 @@ export default function Home() {
                 <h3 className="font-semibold text-foreground mb-3">{currentLocale === 'zh-CN' ? '产品' : 'Product'}</h3>
                 <ul className="space-y-2">
                   <li><a href="https://github.com/larksuite/cli" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-foreground transition-colors">GitHub</a></li>
-                  <li><Link href={`/${currentLocale}/changelog`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '更新日志' : 'Changelog'}</Link></li>
+                  <li><Link href={getLocalizedPath(currentLocale, '/changelog')} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '更新日志' : 'Changelog'}</Link></li>
                   <li><a href="https://www.feishu.cn/content/article/7623291503305083853" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-foreground transition-colors">{t.home.footer.links.officialDocs}</a></li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-3">{currentLocale === 'zh-CN' ? '内容' : 'Content'}</h3>
                 <ul className="space-y-2">
-                  <li><Link href={`/${currentLocale}/blog`} className="text-sm hover:text-foreground transition-colors">{t.header.navigation.blog}</Link></li>
-                  <li><Link href={`/${currentLocale}/blog/cli-beginner-guide`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? 'CLI 入门指南' : "CLI Beginner's Guide"}</Link></li>
-                  <li><Link href={`/${currentLocale}/blog/feishu-cli-creator-contest`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '创作者大赛' : 'Creator Contest'}</Link></li>
+                  <li><Link href={getLocalizedPath(currentLocale, '/blog')} className="text-sm hover:text-foreground transition-colors">{t.header.navigation.blog}</Link></li>
+                  <li><Link href={getLocalizedPath(currentLocale, '/blog/cli-beginner-guide')} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? 'CLI 入门指南' : "CLI Beginner's Guide"}</Link></li>
+                  <li><Link href={getLocalizedPath(currentLocale, '/blog/feishu-cli-creator-contest')} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '创作者大赛' : 'Creator Contest'}</Link></li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-3">{currentLocale === 'zh-CN' ? '社区' : 'Community'}</h3>
                 <ul className="space-y-2">
                   <li><a href="https://waytoagi.feishu.cn/wiki/Zsp2wxsKEiRTEjkajJFc7FBGnh3" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-foreground transition-colors">{t.home.footer.links.community}</a></li>
-                  <li><Link href={`/${currentLocale}/blog/jiamu-claude-code-feishu-cli`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '甲木：企业级场景实战' : 'Jiamu: Enterprise Workflows'}</Link></li>
-                  <li><Link href={`/${currentLocale}/blog/lengyi-feishu-wecom-cli-8-plays`} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '冷逸：8 大玩法' : 'Lengyi: 8 Use Cases'}</Link></li>
+                  <li><Link href={getLocalizedPath(currentLocale, '/blog/jiamu-claude-code-feishu-cli')} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '甲木：企业级场景实战' : 'Jiamu: Enterprise Workflows'}</Link></li>
+                  <li><Link href={getLocalizedPath(currentLocale, '/blog/lengyi-feishu-wecom-cli-8-plays')} className="text-sm hover:text-foreground transition-colors">{currentLocale === 'zh-CN' ? '冷逸：8 大玩法' : 'Lengyi: 8 Use Cases'}</Link></li>
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold text-foreground mb-3">{currentLocale === 'zh-CN' ? '关于' : 'About'}</h3>
                 <ul className="space-y-2">
-                  <li><Link href={`/${currentLocale}/terms`} className="text-sm hover:text-foreground transition-colors">Terms of Service</Link></li>
-                  <li><Link href={`/${currentLocale}/privacy`} className="text-sm hover:text-foreground transition-colors">Privacy Policy</Link></li>
+                  <li><Link href={getLocalizedPath(currentLocale, '/terms')} className="text-sm hover:text-foreground transition-colors">Terms of Service</Link></li>
+                  <li><Link href={getLocalizedPath(currentLocale, '/privacy')} className="text-sm hover:text-foreground transition-colors">Privacy Policy</Link></li>
                 </ul>
               </div>
             </div>

@@ -1526,6 +1526,48 @@ export const zhCN: Locale = {
         earlyBird: "5,900+ GitHub Stars"
       }
     },
+    install: {
+      title: "安装方式一览",
+      subtitle: "首页直接给你 CLI 和 Skill 的安装命令。CLI 提供国内免梯子镜像方案；Skill 目前仅提供官方安装命令，并明确说明国内镜像现状。",
+      copyButton: "复制",
+      cards: [
+        {
+          badge: "CLI 安装",
+          title: "安装飞书 CLI",
+          description: "适合命令行用户和 AI Agent 工作流。推荐先安装 CLI，再完成扫码授权。",
+          copyDescription: "复制后可直接在终端执行，安装飞书 CLI。",
+          commands: [
+            {
+              label: "国内免梯子安装",
+              note: "使用 npmmirror 中国镜像，更适合国内网络环境。",
+              highlight: "推荐国内用户",
+              value: "npm install -g @larksuite/cli --registry=https://registry.npmmirror.com"
+            },
+            {
+              label: "标准安装",
+              note: "适合可直接访问 npm 官方源的环境。",
+              value: "npm install -g @larksuite/cli"
+            }
+          ],
+          footer: "安装完成后，运行 lark-cli auth login 扫码授权，即可开始调用飞书能力。"
+        },
+        {
+          badge: "Skill 安装",
+          title: "安装 AI Agent Skill",
+          description: "如果你想在 Claude Code、Cursor 等 AI 工具里直接操作飞书，还需要安装 Skill。",
+          copyDescription: "复制后可直接在终端执行，安装飞书 CLI Skill。",
+          commands: [
+            {
+              label: "官方安装命令",
+              note: "当前可确认的官方安装方式。",
+              highlight: "官方",
+              value: "npx skills add larksuite/cli -y -g"
+            }
+          ],
+          footer: "目前未发现 Skill 的官方大陆镜像或独立下载地址。如果你的网络无法访问上游源码托管服务，可能仍需额外网络支持。"
+        }
+      ]
+    },
     features: {
       title: "为什么选择飞书 CLI",
       subtitle: "从命令行到 AI Agent，飞书 CLI 为个人用户和开发者提供最高效的飞书自动化解决方案。",

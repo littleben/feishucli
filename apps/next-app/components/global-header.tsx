@@ -26,6 +26,7 @@ import { Check, Globe } from "lucide-react";
 import { type SupportedLocale, locales } from "@libs/i18n";
 import { useTranslation } from "@/hooks/use-translation";
 import { ThemeToggle, ColorSchemeToggle } from "@/components/theme-toggle";
+import { getLocalizedPath } from "@/lib/locale-path";
 
 interface HeaderProps {
   className?: string;
@@ -39,16 +40,18 @@ export default function Header({ className }: HeaderProps) {
   const handleLanguageChange = (locale: SupportedLocale) => {
     // Don't change if it's the same locale
     if (locale === currentLocale) return;
-    
+
     // Get the current path without the locale prefix
-    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '') || '/';
-    
+    const pathWithoutLocale = currentLocale === config.app.i18n.defaultLocale
+      ? pathname || '/'
+      : pathname.replace(`/${currentLocale}`, '') || '/';
+
     // Store the preference first
     document.cookie = `${config.app.i18n.cookieKey}=${locale}; path=/; max-age=31536000`;
-    
+
     // Navigate to the new locale path using window.location to ensure full page reload
     // This prevents theme state issues during navigation
-    window.location.href = `/${locale}${pathWithoutLocale}`;
+    window.location.href = getLocalizedPath(locale, pathWithoutLocale);
   };
 
   return (
@@ -57,23 +60,23 @@ export default function Header({ className }: HeaderProps) {
         <div className="flex h-16 items-center justify-between">
           {/* Logo and brand */}
           <div className="flex items-center">
-            <Link href={`/${currentLocale}`}>
+            <Link href={getLocalizedPath(currentLocale, '/')}>
               <Logo size="lg" />
             </Link>
           </div>
 
           {/* Desktop navigation */}
           <nav className="hidden md:flex md:items-center md:space-x-6">
-            <a href={`/${currentLocale}#use-cases`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href={`${getLocalizedPath(currentLocale, '/')}#use-cases`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t.header.navigation.useCases}
             </a>
-            <a href={`/${currentLocale}#quickstart`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a href={`${getLocalizedPath(currentLocale, '/')}#quickstart`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t.header.navigation.quickstart}
             </a>
-            <Link href={`/${currentLocale}/blog`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <Link href={getLocalizedPath(currentLocale, '/blog')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t.header.navigation.blog}
             </Link>
-            <Link href={`/${currentLocale}/changelog`} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <Link href={getLocalizedPath(currentLocale, '/changelog')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t.header.navigation.changelog}
             </Link>
           </nav>
@@ -137,16 +140,16 @@ export default function Header({ className }: HeaderProps) {
         <div className="md:hidden bg-background border-t border-border">
           <div className="px-2 pt-2 pb-3 space-y-2 sm:px-3">
             {/* Mobile Navigation Links */}
-            <a href={`/${currentLocale}#use-cases`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
+            <a href={`${getLocalizedPath(currentLocale, '/')}#use-cases`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
               {t.header.navigation.useCases}
             </a>
-            <a href={`/${currentLocale}#quickstart`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
+            <a href={`${getLocalizedPath(currentLocale, '/')}#quickstart`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
               {t.header.navigation.quickstart}
             </a>
-            <Link href={`/${currentLocale}/blog`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
+            <Link href={getLocalizedPath(currentLocale, '/blog')} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
               {t.header.navigation.blog}
             </Link>
-            <Link href={`/${currentLocale}/changelog`} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
+            <Link href={getLocalizedPath(currentLocale, '/changelog')} className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-muted" onClick={() => setIsMenuOpen(false)}>
               {t.header.navigation.changelog}
             </Link>
             <div className="border-t border-border my-2" />

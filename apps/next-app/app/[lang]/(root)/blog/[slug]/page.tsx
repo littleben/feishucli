@@ -11,7 +11,11 @@ import XiaohuArticle from "../posts/xiaohu";
 import CliBeginnerGuide from "../posts/cli-beginner-guide";
 import FeishuCliCreatorContest from "../posts/feishu-cli-creator-contest";
 
-const contentMap: Record<string, React.ComponentType> = {
+type BlogContentProps = {
+  lang?: string;
+};
+
+const contentMap: Record<string, React.ComponentType<BlogContentProps>> = {
   "jiamu-claude-code-feishu-cli": JiamuArticle,
   "lengyi-feishu-wecom-cli-8-plays": LengyiArticle,
   "huangshu-ai-control-feishu": HuangshuArticle,
@@ -112,28 +116,9 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </header>
 
-          {isZh ? (
-            <div className="prose prose-neutral dark:prose-invert max-w-none">
-              <Content />
-            </div>
-          ) : (
-            <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-5">
-              <p className="text-muted-foreground leading-relaxed">{localizedPost.excerpt}</p>
-              <p className="text-muted-foreground leading-relaxed">
-                This article is currently available in Chinese only. Use the source link above to read the original version.
-              </p>
-              {sourceUrl && (
-                <a
-                  href={post.originalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary hover:underline"
-                >
-                  Read the original Chinese article <ExternalLink className="size-4" />
-                </a>
-              )}
-            </div>
-          )}
+          <div className="prose prose-neutral dark:prose-invert max-w-none">
+            <Content lang={lang} />
+          </div>
         </article>
       </div>
     </div>

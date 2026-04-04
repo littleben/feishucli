@@ -1,4 +1,136 @@
-export default function FeishuCliCreatorContest() {
+export default function FeishuCliCreatorContest({ lang = "zh-CN" }: { lang?: string }) {
+  if (lang === "en") {
+    return (
+        <div className="space-y-6">
+          <img src="/images/features/banner.png" alt="Lark CLI Creator Contest" className="w-full rounded-xl border border-border" />
+
+          <p className="text-muted-foreground leading-relaxed">
+            Since Lark CLI was open-sourced, creators across the community have been experimenting with inventive ways to use it. To encourage more building, sharing, and real-world practice, we&apos;re launching the Lark CLI Creator Contest. Whether you write code every day or simply love trying new tools, you&apos;re welcome to join and compete for a great set of prizes.
+          </p>
+
+          <h2 className="text-xl font-semibold mt-8 mb-3">Contest Timeline</h2>
+          <div className="space-y-3 my-4">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 bg-primary/10 rounded-lg px-3 py-1.5 text-sm font-medium text-primary">
+                April 1
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Contest launch</p>
+                <p className="text-muted-foreground text-sm">Submissions officially open</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 bg-primary/10 rounded-lg px-3 py-1.5 text-sm font-medium text-primary">
+                April 20
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Submission deadline</p>
+                <p className="text-muted-foreground text-sm">All entries must be submitted by this date</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 bg-primary/10 rounded-lg px-3 py-1.5 text-sm font-medium text-primary">
+                April 25-30
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Judging and results</p>
+                <p className="text-muted-foreground text-sm">A panel of judges reviews entries and announces the winners</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 className="text-xl font-semibold mt-8 mb-3">Tracks</h2>
+
+          <h3 className="text-lg font-medium mt-4 mb-2">Track 1: GitHub Developer Track</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            This track is designed for developers. To enter, submit a Skill project built with Lark CLI on GitHub. You can create something entirely new that expands what Lark CLI can do, or build an original workflow on top of existing Skills.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Judges will focus on practical value, code quality, documentation, and originality.
+          </p>
+
+          <h3 className="text-lg font-medium mt-4 mb-2">Track 2: Social Media Track</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            This track is open to everyone, including non-developers. To participate, publish a post or video about your experience using Lark CLI on social media platforms such as Twitter and other creator communities. You can share your workflow, lessons learned, use cases, or even mistakes that helped you understand the tool better.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Entries will be evaluated based on content quality, audience impact, and how useful they are to other users.
+          </p>
+
+          <h2 className="text-xl font-semibold mt-8 mb-3">Prizes</h2>
+          <div className="space-y-4 my-4">
+            <div className="border border-border rounded-lg p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-lg font-semibold text-foreground">Best Practice Award</span>
+              </div>
+              <p className="text-muted-foreground text-sm">A Mac Mini — awarded to the entry with the strongest mix of practical value and innovation</p>
+            </div>
+            <div className="border border-border rounded-lg p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-lg font-semibold text-foreground">Most Popular Award</span>
+              </div>
+              <p className="text-muted-foreground text-sm">Anker AI earbuds — awarded to the entry that receives the most community support</p>
+            </div>
+            <div className="border border-border rounded-lg p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-lg font-semibold text-foreground">Best Reach Award</span>
+              </div>
+              <p className="text-muted-foreground text-sm">A gift card — awarded to the social media entry with standout distribution and reach</p>
+            </div>
+          </div>
+
+          <h2 className="text-xl font-semibold mt-8 mb-3">Entry Requirements</h2>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed ml-2">
+            <li>All submissions must be original and created with Lark CLI</li>
+            <li>GitHub track entries must include complete usage documentation and installation instructions</li>
+            <li>Social media track entries must be publicly posted and include the required contest hashtag</li>
+            <li>You may participate in both tracks at the same time</li>
+            <li>Team submissions are welcome, but one team lead must be designated as the main contact</li>
+          </ul>
+
+          <h2 className="text-xl font-semibold mt-8 mb-3">Learning Resources</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            If you&apos;re new to Lark CLI, these resources will help you get up to speed quickly:
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-muted-foreground leading-relaxed ml-2">
+            <li>The Lark CLI GitHub repository: installation guide and API documentation</li>
+            <li>Community examples: real-world use cases and code shared by other creators</li>
+            <li>Official livestream replays: walkthroughs of core features and product demos</li>
+          </ul>
+          <p className="text-muted-foreground leading-relaxed">
+            During the contest, there will also be online livestream sessions featuring core Lark CLI contributors and early users, giving participants a clearer sense of what the tool can do and what makes a strong submission.
+          </p>
+
+          <h2 className="text-xl font-semibold mt-8 mb-3">How to Enter</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            There&apos;s no separate registration form. For the GitHub track, simply submit your entry via Pull Request. For the social media track, publishing your content with the official hashtag counts as your submission. For detailed instructions and the exact submission format, please visit the contest page.
+          </p>
+
+          <div className="bg-muted/30 rounded-lg p-6 my-8">
+            <p className="text-foreground font-medium mb-2">Contest details and submission entry</p>
+            <p className="text-muted-foreground text-sm">
+              For the full rules, judging criteria, and submission process, please refer to the official contest documentation.
+            </p>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-border">
+            <p className="text-sm text-muted-foreground">
+              Adapted from the official Lark CLI Creator Contest announcement. For full details, see
+              <a
+                href="https://waytoagi.feishu.cn/wiki/R4S3w8wTTie04nkYiL6c8rxon4d"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-foreground transition-colors ml-1"
+              >
+                the original WaytoAGI page
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+    );
+  }
+
   return (
       <div className="space-y-6">
         <img src="/images/features/banner.png" alt="飞书 CLI 创作者大赛" className="w-full rounded-xl border border-border" />

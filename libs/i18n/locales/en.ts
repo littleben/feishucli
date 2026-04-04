@@ -1241,6 +1241,48 @@ export const en: Locale = {
         earlyBird: "5,900+ GitHub Stars"
       }
     },
+    install: {
+      title: "Installation Options",
+      subtitle: "Get both the CLI and the AI Agent Skill from the homepage. The CLI has a China-friendly mirror command, while the Skill section clearly explains the current domestic access limitation.",
+      copyButton: "Copy",
+      cards: [
+        {
+          badge: "CLI Install",
+          title: "Install Lark CLI",
+          description: "Best for terminal users and AI Agent workflows. Install the CLI first, then complete QR authorization.",
+          copyDescription: "Copy and run this command in your terminal to install Lark CLI.",
+          commands: [
+            {
+              label: "China-Friendly Install",
+              note: "Uses the npmmirror registry, which is usually more reliable in mainland China.",
+              highlight: "Recommended in China",
+              value: "npm install -g @larksuite/cli --registry=https://registry.npmmirror.com"
+            },
+            {
+              label: "Standard Install",
+              note: "Use this if you can access the default npm registry normally.",
+              value: "npm install -g @larksuite/cli"
+            }
+          ],
+          footer: "After installation, run lark-cli auth login to scan and authorize your account."
+        },
+        {
+          badge: "Skill Install",
+          title: "Install the AI Agent Skill",
+          description: "If you want Claude Code, Cursor, and other AI tools to operate Lark directly, you also need the Skill installed.",
+          copyDescription: "Copy and run this command in your terminal to install the Lark CLI Skill.",
+          commands: [
+            {
+              label: "Official Command",
+              note: "This is the official installation command currently available.",
+              highlight: "Official",
+              value: "npx skills add larksuite/cli -y -g"
+            }
+          ],
+          footer: "No official mainland China mirror or standalone download URL was found for the Skill payload. If your network cannot reach the upstream source host, additional network access may still be required."
+        }
+      ]
+    },
     features: {
       title: "Why Choose Lark CLI",
       subtitle: "From command line to AI Agent, Lark CLI provides the most efficient Lark automation solution for individual users and developers.",

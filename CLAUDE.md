@@ -316,3 +316,5 @@ docker-compose up -d
 3. **数据库**: PostgreSQL 必需
 4. **认证密钥**: `BETTER_AUTH_SECRET` 至少 32 字符
 5. **Webhook**: 支付 webhook 需要公网地址 (开发时用内网穿透)
+6. **更新日志来源**: 网站 changelog 页面必须从 `https://github.com/larksuite/cli/blob/main/CHANGELOG.md` 获取，不要再从 GitHub Releases API 或硬编码数组读取。
+7. **中文 changelog 要求**: 中文页面必须展示完整中文内容，不能只给摘要，也不要保留大段英文原文。
