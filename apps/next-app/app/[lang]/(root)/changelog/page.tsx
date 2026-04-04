@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
+import type { Components } from "react-markdown";
 import { getGitHubReleases, githubReleasesPageUrl } from "@/lib/github/releases";
 
 type Props = {
@@ -28,6 +29,41 @@ function formatDate(date: string, locale: string) {
     day: 'numeric',
   }).format(new Date(date));
 }
+
+const mdComponents: Components = {
+  h3: ({ children }) => (
+    <h3 className="text-base font-semibold text-foreground mt-5 mb-2">{children}</h3>
+  ),
+  ul: ({ children }) => (
+    <ul className="list-disc list-outside pl-5 space-y-1.5 text-sm text-muted-foreground">{children}</ul>
+  ),
+  li: ({ children }) => (
+    <li className="leading-relaxed">{children}</li>
+  ),
+  p: ({ children }) => (
+    <p className="text-sm text-muted-foreground leading-relaxed mb-2">{children}</p>
+  ),
+  code: ({ children, className }) => {
+    const isBlock = className?.includes("language-");
+    if (isBlock) {
+      return (
+        <code className={`${className ?? ""} block`}>{children}</code>
+      );
+    }
+    return (
+      <code className="rounded bg-muted px-1.5 py-0.5 text-xs font-mono text-foreground">{children}</code>
+    );
+  },
+  pre: ({ children }) => (
+    <pre className="rounded-lg bg-muted p-4 overflow-x-auto text-xs font-mono text-foreground my-3">{children}</pre>
+  ),
+  a: ({ href, children }) => (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 transition-colors">{children}</a>
+  ),
+  strong: ({ children }) => (
+    <strong className="font-semibold text-foreground">{children}</strong>
+  ),
+};
 
 export default async function ChangelogPage({ params }: Props) {
   const { lang } = await params;
@@ -107,9 +143,7 @@ export default async function ChangelogPage({ params }: Props) {
                   )}
 
                   <div className="rounded-2xl border border-border bg-card p-5">
-                    <div className="prose prose-sm max-w-none dark:prose-invert prose-p:text-muted-foreground prose-li:text-muted-foreground prose-headings:text-foreground prose-code:text-foreground prose-pre:bg-muted prose-pre:text-foreground">
-                      <ReactMarkdown>{isZh ? release.bodyZh : (release.body || "No detailed notes provided.")}</ReactMarkdown>
-                    </div>
+                    <ReactMarkdown components={mdComponents}>{isZh ? release.bodyZh : (release.body || "No detailed notes provided.")}</ReactMarkdown>
                   </div>
                 </div>
               ))}
